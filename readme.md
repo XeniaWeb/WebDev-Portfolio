@@ -3,7 +3,8 @@
 * WEB Developer: [Xenia Bürki (Tkacheva)](https://up.htmlacademy.ru/adaptive/19/user/830487).
 * Company: [XeniaWEB](https://xeniaweb.ch)
 
-Project's repository: [WebDev-Portfolio](https://github.com/XeniaTkacheva/WebDev-Portfolio)
+* Project's repository: [WebDev-Portfolio](https://github.com/XeniaTkacheva/WebDev-Portfolio)
+* Project's website: [xenia.website](https://xenia.website/)
 
 ## Scripts of package.json:
 
