@@ -1,29 +1,24 @@
-# Учебный шаблон проекта Portfolio
+# XeniaWeb
 
-> Перед установкой зависимостей и запуском проекта убедитесь, что у вас установлена [последняя версия Node.js & NPM](https://nodejs.org/en/download/current/), а так же 
-[последняя версия Yarn](https://yarnpkg.com/ru/docs/install)
+* WEB Developer: [Xenia Bürki (Tkacheva)](https://up.htmlacademy.ru/adaptive/19/user/830487).
+* Company: [XeniaWEB](https://xeniaweb.ch)
 
-##  Чтобы развернуть проект необходимо:
-```sh
-$ git clone git@github.com:loftschool/ls-advanced-portfolio.git
-$ cd ls-advanced-portfolio
-$ yarn
-```
+Project's repository: [WebDev-Portfolio](https://github.com/XeniaTkacheva/WebDev-Portfolio)
 
-## Скрипты package.json:
+## Scripts of package.json:
 
-| Скрипт | Назначение |
+| Script | Назначение |
 | ------ | ------ |
 | dev | Запустит webpack-dev-server с _горячей_ заменой модулей |
 | build | Соберет проект для **production** (проект готов к загрузке на сервер) |
 | reg | Консольная утилита для регистрации. Использовать перед началом работы над **админ-панелью**. |
 
-#### Чтобы запустить скрипт:
+#### To start script:
 ```sh
-$ npm run имя_скрипта
+$ npm run script_name
 ```
 
-##### Либо:
+##### Or:
 ```sh
-$ yarn имя_скрипта
+$ yarn script_name
 ```
