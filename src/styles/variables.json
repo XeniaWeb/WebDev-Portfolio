@@ -1,4 +1,8 @@
 {
+  "bg-color-light": "#d7dff4",
+  "bg-color-blue": "#a5c4f3",
+  "bg-color-dark": "#1f232d",
+
   "text-color": "#414c63",
   "links-color": "#4b6fd7",
   "bp-desktop-hd": "1800px",

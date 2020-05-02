@@ -10,24 +10,86 @@ html(lang="en")
     link(rel="stylesheet" href="css/style.css")
 
   body
-    .wrapper
-      header.page-header#home
-        .page-header__wrapper
-          a.hage-header__logo-link(href="#") XW
-          ul.page-header__main-nav.main-nav
-            include variables.pug
-              each item in mainMenu
-                li.main-nav__item
-                  a(href=`#${item.path}`) #{item.text}
-          ul.page-header__social.social
-            include var-social.pug
-              each itemso in socialList
-                li.social__item
-                  a(href=itemso.path class="social__link visually-hidden")
-                    +icon(itemso.icon, "social__icon")
+    .body-wrapper
+      .home-section#home
+        .home-section__wrapper
+          header.page-header
+            a.page-header__logo-link(href="#") XW
+            .page-header__main-nav
+              ul.main-nav
+                include variables.pug
+                  each item in mainMenu
+                    li.main-nav__item
+                      a(href=`#${item.path}`) #{item.text}
+            .page-header__social
+              ul.social
+                include var-social.pug
+                  each item in socialList
+                    li.social__item
+                      a(href=item.path).social__link.visually-hidden
+                        +icon(item.icon, "social__icon")
+          section.hero
+            .hero__title
+              .long-title
+                h1.long-title__name Xenia Bürki&#8195;
+                  span.long-title__desc Личный сайт веб-разработчика
+            .hero__btn
+              button.scroll-btn Скролл
+                +icon("scroll", "scroll-btn__icon", 30, 30)
+          section#about.about
+            .about__left
+              .user-info
+                .user-info__avatar.avatar
+                  +image("user.jpg", "avatar__image", "Photo Xenia Bürki", 211, 211)
+                .user-info__content
+                  -
+                    var userInfo = [
+                    ['Проживаю', 'Швейцария'],
+                    ['Образование', 'Высшее'],
+                    ['Родилась', 'СССР']
+                    ];
+                  table.user-info__data
+                    tbody.user-info__body
+                      each row in userInfo
+                        tr
+                          td #{row[0]}
+                          td #{row[1]}
 
-section#about.about-section
-section#skills.skills-section
-section#works.works-section
-section#reviews.reviews-section
-footer#connect.page-footer
+            .about__right
+      section#skills.skills
+      section#works.works
+      .meet-section
+        .meet-section__wrapper
+          section#reviews.reviews
+          section#connect.connect
+      footer.page-footer
+        .page-footer__wrapper
+          .page-footer__title
+            .long-title
+              h2.long-title__name Oksana Bürki&#8195;
+              p.long-title__desc Личный сайт веб-разработчика
+          .page-footer__content
+            .page-footer__nav
+              ul.main-nav
+                include variables.pug
+                  each item in mainMenu
+                    li.main-nav__item
+                      a(href=`#${item.path}`) #{item.text}
+            .page-footer__info
+              p.page-footer__desc.
+                Этот сайт был сделан мной в рамках обучения в Школе онлайн образования Loftschool
+              .page-footer__social
+                ul.social
+                  include var-social.pug
+                    each item in socialList
+                      li.social__item
+                        a(href=item.path).social__link.visually-hidden
+                          +icon(item.icon, "social__icon")
+            .page-footer__text
+              article.aphorism
+                p.aphorism__text.
+                  Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+                address.aphorism__author Martin Golding
+
+
+
