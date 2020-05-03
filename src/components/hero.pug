@@ -1,0 +1,26 @@
+include ../mixins.pug
+
+section.hero
+  .hero__wrapper
+    .hero__nav.page-header
+      a.page-header__logo-link(href="#") XW
+      .page-header__main-nav
+        ul.main-nav
+          include ../var
+            each item in mainMenu
+              li.main-nav__item
+                a(href=`#${item.path}`) #{item.text}
+      .page-header__social
+        ul.social
+          include ../var
+            each item in socialList
+              li.social__item
+                a(href=item.path target="_blank").social__link.visually-hidden
+                  +icon(item.icon, "social__icon")
+    .hero__title
+      .long-title
+        h1.long-title__name Xenia Bürki
+        p.long-title__desc Личный сайт веб-разработчика
+    .hero__btn
+      button.scroll-btn Скролл
+        +icon("scroll", "scroll-btn__icon", 30, 30)

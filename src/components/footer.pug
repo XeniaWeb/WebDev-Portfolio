@@ -1,0 +1,29 @@
+include ../mixins.pug
+
+footer.page-footer
+  .page-footer__wrapper
+    .page-footer__copyright.copyright
+      a(href="#" title="Developed by XeniaWeb").copyright__link &copy;&nbsp;2020
+    .page-footer__title
+      h2.page-footer__name Xenia Bürki
+      p.page-footer__desc Личный сайт веб-разработчика
+    .page-footer__content
+      .page-footer__nav
+        ul.main-nav
+          each item in mainMenu
+            li.main-nav__item
+              a(href=`#${item.path}`) #{item.text}
+      .page-footer__info
+        p.page-footer__desc.
+          Этот сайт был сделан мной в рамках обучения в Школе онлайн образования Loftschool
+        .page-footer__social
+          ul.social
+            each item in socialList
+              li.social__item
+                a(href=item.path).social__link.visually-hidden
+                  +icon(item.icon, "social__icon")
+      .page-footer__text
+        article.aphorism
+          p.aphorism__text.
+            Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+          address.aphorism__author Martin Golding

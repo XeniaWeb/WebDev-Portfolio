@@ -1,0 +1,46 @@
+.skill {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill__title {
+  width: 50%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 700;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.skill__circle {
+  fill: none;
+  z-index: 100;
+
+  &--down {
+    stroke-width: 10px;
+    stroke: $circle-color-light;
+  }
+
+  &--up {
+    stroke-width: 20px;
+    stroke: url("#skill__gradient");
+    stroke-dasharray: 427;
+    animation: alternateCircle 100s linear;
+    animation-play-state: paused;
+  }
+}
+
+@keyframes alternateCircle {
+  from {
+    stroke-dashoffset: 427;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

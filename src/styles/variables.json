@@ -3,6 +3,10 @@
   "bg-color-blue": "#a5c4f3",
   "bg-color-dark": "#1f232d",
 
+  "circle-color-light": "#eaeaea",
+  "color-lila": "#ad00ed",
+  "color-indigo": "#5500f2",
+
   "text-color": "#414c63",
   "links-color": "#4b6fd7",
   "bp-desktop-hd": "1800px",

@@ -1,0 +1,31 @@
+include ../mixins.pug
+
+section#about.about
+  .about__wrapper
+    .about__left
+      .user-info
+        .user-info__avatar.avatar
+          +image("user.jpg", "avatar__image", "Photo Xenia Bürki", 211, 211)
+        .user-info__content
+          -
+            var userInfo = [
+              ['Проживаю', 'Швейцария'],
+              ['Образование', 'Высшее'],
+              ['Родилась', 'СССР']
+            ];
+          table.user-info__data
+            tbody.user-info__body
+              each row in userInfo
+                tr
+                  td #{row[0]}
+                  td #{row[1]}
+
+    .about__right
+      small.about__desc Привет, меня зовут
+      h2.about__title.section-title Xenia Bürki
+      .about__text
+        p.
+          Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+        p.
+          Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+
