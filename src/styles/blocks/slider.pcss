@@ -1,0 +1,132 @@
+.slider {
+  display: block;
+  position: relative;
+}
+
+.slider__item {
+  display: none;
+  width: 100%;
+
+  &:last-child {
+    display: block;
+  }
+}
+
+.slider__image {
+  display: block;
+  width: 991px;
+  height: 556px;
+}
+
+.slider__previews {
+  background: transparent;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slider__preview-link {
+  display: inline-block;
+  margin-bottom: -3px;
+
+  &:focus,
+  &:active  {
+    outline: solid 3px rgba($active-color, 0.8);
+  }
+
+  &:hover {
+    outline: solid 3px $active-color;
+  }
+}
+
+.slider__preview-image {
+  display: block;
+}
+
+.slider__nav {
+  display: flex;
+  position: absolute;
+  bottom: -50px;
+  right: 0;
+}
+
+.slider__nav-btn {
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: relative;
+
+  &--round {
+    border: 1px solid $text-color;
+    border-radius: 50%;
+  }
+
+  &--square {
+    background: $text-color-dark;
+    fill: white;
+
+    &:hover,
+    &:focus {
+      background: $active-color;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+}
+
+.slider__arrow {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+
+  &--forward {
+    transform: translate(-50%, -50%);
+  }
+  &--back {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  &--up {
+    transform: translate(-50%, -50%) rotate(-90deg);
+  }
+  &--down {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+
+.slider__title {
+  font-size: 30px;
+  line-height: 48px;
+  font-weight: 800;
+  color: $text-color;
+}
+
+.slider__link {
+  display: block;
+  padding: 20px 0 20px 30px;
+  color: $links-color;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 48px;
+  position: relative;
+}
+
+.slider__link-icon {
+  display: block;
+  position: absolute;
+  content: "";
+  fill: $links-color;
+  width: 20px;
+  height: 20px;
+  top: 40%;
+  left: 0;
+}
