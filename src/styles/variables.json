@@ -8,6 +8,9 @@
   "color-indigo": "#5500f2",
 
   "text-color": "#414c63",
+  "text-color-dark": "#2d3c4e",
+
+  "active-color": "#f29400",
   "links-color": "#4b6fd7",
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",

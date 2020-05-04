@@ -3,3 +3,20 @@ include ../mixins.pug
 section#connect.connect
   .container.connect__wrapper
     h2.connect__title.section-title Связаться со мной
+
+    p xenia1898@gmail.com
+    p.about__desc +7-923-1000-918
+
+    form.connect__form.form(method="post" action="#" enctype="multipart/form-data")
+      fieldset.form__set.form__set--user-data
+        label(for="user-name").form__legend Введите ваше имя
+          input(type="text" name="user-name" placeholder="Ковальчук Дмитрий")#user-name.form__input.form__input--user-name
+          +icon("user", "form__icon form__icon--user", 20, 20)
+        label(for="user-email").form__legend Введите ваш email
+          input(type="email" name="user-name" placeholder="xenia1898@gmail.com")#user-email.form__input.form__input--user-email
+          +icon("envelope", "form__icon form__icon--email", 20, 20)
+      fieldset.form__set.form__set--message
+        label(for="message").form__legend Сообщение к письму
+        textarea(name="message" cols=50 rows=10 placeholder="Требуется ваша помощь в создании сайта. Интересует цена и сроки.")#message
+        +icon("message", "form__icon form__icon--message", 20, 20)
+      button(type="submit").form__btn.button Отправить

@@ -3,4 +3,11 @@ include ../mixins.pug
 section#reviews.reviews
   .container.reviews__wrapper
     h2.reviews__title.section-title Что обо мне говорят
+    .reviews__slider.slider
+      .slider__content
 
+      .slider__nav
+        .button.slider__nav-btn.slider__nav-btn--round
+          +icon("arrow", "slider__arrow slider__arrow--back", 10, 10)
+        .button.slider__nav-btn.slider__nav-btn--round
+          +icon("arrow", "slider__arrow slider__arrow--forward", 10, 10)
