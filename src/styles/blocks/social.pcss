@@ -6,8 +6,35 @@
   margin-right: 40px;
   display: block;
 
-  &:last-child {
-    margin-right: 0;
+  &--footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border: 1px solid white;
+    border-radius: 50%;
+
+    &:hover {
+      border-color: $color-indigo;
+
+      .social__icon {
+        fill: $color-indigo;
+      }
+    }
+
+    &:active {
+      opacity: 0.8;
+      .social__icon {
+        opacity: 0.8;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
 
@@ -19,15 +46,7 @@
   color: $text-color;
 
   &--footer {
-    color: white;
-  }
-
-  &:hover {
-    color: $color-indigo;
-  }
-
-  &:active {
-    color: rgba($color-indigo, 0.5);
+    color: currentColor;
   }
 }
 

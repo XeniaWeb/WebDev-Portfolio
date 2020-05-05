@@ -13,13 +13,14 @@
 
 .page-footer__heading {
   display: flex;
-  justify-content: space-around;
+  width: 30%;
 }
 
 .page-footer__name {
   font-weight: 700;
   font-size: 18px;
   text-transform: uppercase;
+  padding-bottom: 30px;
 }
 
 .page-footer__copyright {
@@ -27,6 +28,8 @@
   font-size: 48px;
   line-height: 30px;
   opacity: 0.1;
+  width: 220px;
+  flex-grow: 0;
 }
 
 .page-footer__desc {
@@ -35,6 +38,48 @@
   font-weight: 600;
 
   opacity: 0.15;
+}
+
+.page-footer__content {
+  width: 70%;
+}
+
+.page-footer__nav {
+  min-height: 80px;
+
+  a {
+    padding: 0 0 20px;
+  }
+}
+
+.page-footer__info-block {
+  display: flex;
+}
+
+.page-footer__info {
+  width: 40%;
+  padding: 0 20px 20px 30px;
+}
+
+.page-footer__desc {
+  padding-bottom: 30px;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 400;
+  opacity: 0.3;
+}
+
+.page-footer__social {
+  justify-content: start;
+}
+
+.page-footer__text {
+  width: 60%;
+  padding: 0 50px 20px 150px;
+
+  p {
+    padding-bottom: 30px;
+  }
 }
 
 .page-footer__social {
