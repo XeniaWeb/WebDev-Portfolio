@@ -1,0 +1,52 @@
+.review {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.review__text {
+  position: relative;
+  color: $text-color;
+  padding-bottom: 25px;
+
+  p {
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 600;
+    color: $text-color;
+    opacity: 0.5;
+  }
+}
+
+.review__icon {
+  position: absolute;
+  display: block;
+  width: 70px;
+  height: 60px;
+  fill: currentColor;
+  opacity: 0.05;
+  top: 0;
+  left: -100px;
+}
+
+.review__author {
+  display: flex;
+  margin-top: auto;
+}
+
+.review__author-about {
+  padding: 0 20px 10px 50px;
+}
+
+.review__author-name {
+  font-size: 18px;
+  line-height: 48px;
+  font-weight: 800;
+}
+
+.review__author-desc {
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 600;
+  opacity: 0.3;
+}

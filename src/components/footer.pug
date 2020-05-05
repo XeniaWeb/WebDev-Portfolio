@@ -1,12 +1,13 @@
 include ../mixins.pug
 
 footer.page-footer
-  .page-footer__wrapper
-    .page-footer__copyright.copyright
-      a(href="#" title="Developed by XeniaWeb").copyright__link &copy;&nbsp;2020
-    .page-footer__title
-      h2.page-footer__name Xenia Bürki
-      p.page-footer__desc Личный сайт <br> веб-разработчика
+  .container.page-footer__wrapper
+    .page-footer__heading
+      .page-footer__copyright.copyright
+        a(href="#" title="Developed by XeniaWeb").copyright__link &copy;&nbsp;2020
+      .page-footer__title
+        h2.page-footer__name Xenia Bürki
+        p.page-footer__desc Личный сайт <br> веб-разработчика
     .page-footer__content
       .page-footer__nav
         ul.main-nav
@@ -20,7 +21,8 @@ footer.page-footer
           ul.social
             each item in socialList
               li.social__item
-                a(href=item.path).social__link.visually-hidden
+                a(href=item.path).social__link.social__link--footer
+                  span.visually-hidden Я в #{item.net}
                   +icon(item.icon, "social__icon")
       .page-footer__text
         article.aphorism

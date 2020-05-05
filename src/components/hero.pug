@@ -1,7 +1,7 @@
 include ../mixins.pug
 
 section.hero
-  .hero__wrapper
+  .container.hero__wrapper
     .hero__nav.page-header
       a.page-header__logo-link(href="#") XeniaWeb
       .page-header__main-nav
@@ -15,7 +15,8 @@ section.hero
           include ../var
             each item in socialList
               li.social__item
-                a(href=item.path target="_blank").social__link.visually-hidden
+                a(href=item.path target="_blank").social__link
+                  span.visually-hidden Я в #{item.net}
                   +icon(item.icon, "social__icon")
     .hero__title
       .long-title

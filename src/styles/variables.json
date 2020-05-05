@@ -5,7 +5,9 @@
 
   "circle-color-light": "#eaeaea",
   "color-lila": "#ad00ed",
+  "color-lila-hover": "#9d00ff",
   "color-indigo": "#5500f2",
+  "color-indigo-hover": ",#5900ff",
 
   "text-color": "#414c63",
   "text-color-dark": "#2d3c4e",

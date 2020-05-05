@@ -38,9 +38,33 @@ body {
   width: 95%;
 // width: 1490px;
 
+  @include desktop {
+    max-width: 1070px;
+  }
+
+  @include tablets {
+    max-width: 758px;
+  }
+
   @include phones {
     width: 85%;
   }
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .fullscreen-section {

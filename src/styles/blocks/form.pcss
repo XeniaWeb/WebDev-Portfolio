@@ -1,0 +1,91 @@
+.form__set {
+  box-sizing: border-box;
+  border: none;
+  padding-bottom: 50px;
+}
+
+.form__user-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__label {
+  display: block;
+  color: $text-color;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 600;
+  opacity: 0.3;
+  padding-left: 40px;
+}
+
+.form__input-block {
+  display: flex;
+  color: $text-color;
+  align-items: center;
+  width: 370px;
+}
+
+.form__input-block,
+.form__area-block {
+  position: relative;
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+  }
+}
+
+.form__icon {
+  display: block;
+  fill: currentColor;
+  opacity: 0.3;
+}
+
+.form__input,
+.form__message {
+  background: transparent;;
+  border: none;
+  color: currentColor;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 48px;
+  padding: 10px 20px;
+
+  &::placeholder {
+    color: currentColor;
+  }
+}
+
+.form__area-block {
+  display: flex;
+  align-items: baseline;
+}
+
+.form__btn {
+  color: white;
+  background: $color-indigo linear-gradient(to right, $color-lila, $color-indigo 80%);
+  font-size: 18px;
+  line-height: 48px;
+  font-weight: 800;
+  text-transform: uppercase;
+  min-width: 350px;
+  padding: 18px 20px;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+
+  &:hover {
+    background-image: linear-gradient(to right, #9d00ff, #5900ff, #5500f2);
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}

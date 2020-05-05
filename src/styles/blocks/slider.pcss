@@ -31,26 +31,27 @@
 .slider__preview-link {
   display: inline-block;
   margin-bottom: -3px;
+  //position: relative;
 
   &:focus,
   &:active  {
-    outline: solid 3px rgba($active-color, 0.8);
+    outline: solid 3px rgba($color-indigo, 0.8);
   }
-
   &:hover {
-    outline: solid 3px $active-color;
+    background: $color-indigo;
   }
 }
 
 .slider__preview-image {
   display: block;
+
+  &:hover {
+    opacity: 0.6;
+  }
 }
 
 .slider__nav {
   display: flex;
-  position: absolute;
-  bottom: -50px;
-  right: 0;
 }
 
 .slider__nav-btn {
@@ -62,6 +63,17 @@
   &--round {
     border: 1px solid $text-color;
     border-radius: 50%;
+
+    &:hover,
+    &:focus {
+      background: rgba($color-indigo, 0.05);
+      border-color: $color-indigo;
+      fill: $color-indigo;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
   }
 
   &--square {
@@ -70,7 +82,7 @@
 
     &:hover,
     &:focus {
-      background: $active-color;
+      background: $color-indigo;
     }
 
     &:active {
@@ -118,6 +130,10 @@
   font-size: 18px;
   line-height: 48px;
   position: relative;
+  
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .slider__link-icon {

@@ -1,6 +1,11 @@
 include ../mixins.pug
 
 section#works.works
+  section.triangles.works__triangles
+    svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangles__item--one
+      polygon(points="0,0 0,100 1000,100")
+    svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangles__item--one
+      polygon(points="1000,0 1000,100 0,100")
   .container.works__wrapper
     h2.works__title.section-title Мои работы
     .works__container
@@ -18,7 +23,7 @@ section#works.works
                   li.slider__preview
                     a(href="#").slider__preview-link
                       +image(`${item}`, "slider__preview-image", "Preview of my work", 178, 100)
-          .slider__nav
+          .works__nav.slider__nav
             .button(tabindex="0").slider__nav-btn.slider__nav-btn--square
               +icon("arrow", "slider__arrow slider__arrow--up", 10, 10)
             .button(tabindex="0").slider__nav-btn.slider__nav-btn--square

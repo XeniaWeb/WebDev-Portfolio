@@ -5,8 +5,20 @@ section#reviews.reviews
     h2.reviews__title.section-title Что обо мне говорят
     .reviews__slider.slider
       .slider__content
-
-      .slider__nav
+        ul.slaider__cards.reviews__cards
+          include ../var
+            each item in reviews
+              li.reviews__item.review
+                .review__text
+                  p #{item.text}
+                  +icon("quote", "review__icon", 70, 60)
+                .review__author
+                  .review__author-photo
+                    +image(item.photo, "review__author-image", "Фото: #{item.reviewer}", 75, 75)
+                  .review__author-about
+                    .review__author-name #{item.reviewer}
+                    .review__author-desc #{item.about}
+      .reviews__nav.slider__nav
         .button.slider__nav-btn.slider__nav-btn--round
           +icon("arrow", "slider__arrow slider__arrow--back", 10, 10)
         .button.slider__nav-btn.slider__nav-btn--round
