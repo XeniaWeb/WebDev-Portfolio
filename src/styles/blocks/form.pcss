@@ -1,12 +1,14 @@
 .form__set {
+  display: block;
   box-sizing: border-box;
   border: none;
-  padding-bottom: 50px;
+  padding: 0;
 }
 
 .form__user-data {
   display: flex;
   justify-content: space-between;
+  padding: 0 0 30px;
 }
 
 .form__label {
@@ -21,9 +23,14 @@
 
 .form__input-block {
   display: flex;
+  box-sizing: border-box;
   color: $text-color;
   align-items: center;
-  width: 370px;
+  width: 380px;
+}
+
+.form__area-block {
+  padding: 0;
 }
 
 .form__input-block,
@@ -47,6 +54,10 @@
   display: block;
   fill: currentColor;
   opacity: 0.3;
+
+  &--message {
+    margin-top: 10px;
+  }
 }
 
 .form__input,
@@ -57,11 +68,16 @@
   font-weight: 800;
   font-size: 18px;
   line-height: 48px;
-  padding: 10px 20px;
+  width: 100%;
+  padding: 10px 15px;
 
   &::placeholder {
     color: currentColor;
   }
+}
+
+.form__message {
+  padding: 7px 15px 0;
 }
 
 .form__area-block {
@@ -70,6 +86,7 @@
 }
 
 .form__btn {
+  margin-top: 50px;
   color: white;
   background: $color-indigo linear-gradient(to right, $color-lila, $color-indigo 80%);
   font-size: 18px;

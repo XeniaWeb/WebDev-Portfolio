@@ -23,11 +23,12 @@ footer.page-footer
             ul.social
               each item in socialList
                 li.social__item.social__item--footer
-                  a(href=item.path).social__link.social__link--footer
+                  a(href=item.path target="_blank").social__link.social__link--footer
                     span.visually-hidden Я в #{item.net}
-                    +icon(item.icon, "social__icon")
+                    +icon(item.icon, "social__icon", 30, 30)
         .page-footer__text
           article.aphorism
-            p.aphorism__text.
-              Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+            .aphorism__text
+              p.
+                Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
             address.aphorism__author Martin Golding

@@ -31,12 +31,13 @@
 .slider__preview-link {
   display: inline-block;
   margin-bottom: -3px;
-  //position: relative;
+//position: relative;
 
   &:focus,
-  &:active  {
+  &:active {
     outline: solid 3px rgba($color-indigo, 0.8);
   }
+
   &:hover {
     background: $color-indigo;
   }
@@ -103,12 +104,15 @@
   &--forward {
     transform: translate(-50%, -50%);
   }
+
   &--back {
     transform: translate(-50%, -50%) rotate(180deg);
   }
+
   &--up {
     transform: translate(-50%, -50%) rotate(-90deg);
   }
+
   &--down {
     transform: translate(-50%, -50%) rotate(90deg);
   }
@@ -123,14 +127,14 @@
 
 .slider__link {
   display: block;
-  padding: 20px 0 20px 30px;
+  padding: 24px 0 20px 30px;
   color: $links-color;
   text-decoration: none;
   font-weight: 800;
   font-size: 18px;
   line-height: 48px;
   position: relative;
-  
+
   &:hover {
     text-decoration: underline;
   }
