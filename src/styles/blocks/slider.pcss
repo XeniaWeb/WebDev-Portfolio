@@ -28,11 +28,16 @@
   justify-content: center;
 }
 
+.slider__preview--active {
+  outline: solid 3px rgba($color-indigo, 0.8);
+}
+
 .slider__preview-link {
   display: inline-block;
   margin-bottom: -3px;
 //position: relative;
 
+  &--active,
   &:focus,
   &:active {
     outline: solid 3px rgba($color-indigo, 0.8);

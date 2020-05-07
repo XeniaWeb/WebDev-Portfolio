@@ -48,17 +48,35 @@
     height: 1px;
     background: currentColor;
   }
+
+  &:hover,
+  &:focus {
+    color: $color-indigo;
+
+    .form__icon {
+      fill: $color-indigo;
+      opacity: 1;
+    }
+    .form__input,
+    .form__message {
+      &::placeholder {
+        color: $color-indigo;
+        opacity: 1;
+      }
+    }
+  }
 }
 
 .form__icon {
   display: block;
-  fill: currentColor;
+  fill: $text-color;
   opacity: 0.3;
 
   &--message {
     margin-top: 10px;
   }
 }
+
 
 .form__input,
 .form__message {
@@ -73,7 +91,10 @@
 
   &::placeholder {
     color: currentColor;
+    opacity: 0.3;
   }
+
+
 }
 
 .form__message {
