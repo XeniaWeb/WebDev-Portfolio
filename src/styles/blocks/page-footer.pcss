@@ -6,14 +6,17 @@
 .page-footer__wrapper {
   width: 95%;
   margin: 0 auto;
-  padding: 100px 0;
-  display: flex;
-  justify-content: space-between;
+  padding: 80px 0 100px;
+  display: grid;
+  grid-template: "heading content" 1fr / 32fr 68fr;
 }
 
 .page-footer__heading {
-  display: flex;
-  width: 32%;
+  grid-area: heading;
+  display: grid;
+  grid-template: "copy title" 1fr / 20fr 25fr;
+  gap: 5%;
+  padding-top: 20px;
 }
 
 .page-footer__copyright {
@@ -21,7 +24,6 @@
   font-size: 48px;
   line-height: 30px;
   opacity: 0.1;
-  width: 220px;
   flex-grow: 0;
 }
 
@@ -33,79 +35,87 @@
 }
 
 .page-footer__desc {
-  font-size: 18px;
-  line-height: 30px;
-  font-weight: 600;
-  opacity: 0.15;
+  span {
+    display: block;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 600;
+    opacity: 0.15;
+  }
 }
 
 .page-footer__content {
-  width: 68%;
+  grid-area: content;
+  display: grid;
+  grid-template: "nav nav" minmax(min-content, 4fr) "info text" min-content "social text" min-content
+          / 40fr 44fr;
+  grid-column-gap: 10%;
+  align-items: start;
 }
 
 .page-footer__nav {
+  grid-area: nav;
   min-height: 80px;
+  align-self: start;
 
   a {
     padding: 0 0 20px;
   }
 }
 
-.page-footer__info-block {
-  display: flex;
-}
-
 .page-footer__info {
-  width: 40%;
-  padding: 0 20px 20px 30px;
-}
+  grid-area: info;
+  padding: 12px 10px 0 30px;
 
-.page-footer__desc {
-  padding-bottom: 30px;
-  font-size: 16px;
-  line-height: 30px;
-  font-weight: 400;
-  opacity: 0.3;
+  p {
+    padding-bottom: 10px;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 400;
+    opacity: 0.3;
+  }
 }
 
 .page-footer__social {
+  grid-area: social;
   justify-content: start;
+  opacity: 0.3;
+  color: white;
+  padding-left: 25px;
 }
 
 .page-footer__text {
-  width: 60%;
-  padding: 0 50px 20px 130px;
-}
-
-.page-footer__social {
-  opacity: 0.3;
-  color: white;
+  grid-area: text;
+  padding-top: 12px;
 }
 
 @include desktop {
   .page-footer__wrapper {
     max-width: 1080px;
-    padding: 75px 0;
+    padding: 58px 0;
+    grid-template: "heading content" 1fr / 25fr 80fr;
   }
 
   .page-footer__heading {
     display: block;
-    padding: 0 0 0 10px;
-    width: 24%;
+    padding: 20px 0 0 5px;
   }
 
   .page-footer__copyright {
     padding: 10px 0 30px;
   }
 
-  .page-footer__text {
-    width: 55%;
-    padding: 0 0 20px 22px;
+  .page-footer__content {
+    grid-template: "nav nav" minmax(min-content, 4fr) "info text" min-content "social text" min-content
+          / 39fr 46fr;
+    grid-column-gap: 3%;
   }
 
   .page-footer__info {
-    width: 45%;
-    padding: 0 0 20px 25px;
+    padding: 12px 0 0 30px;
   }
 }
 
@@ -113,6 +123,45 @@
   .page-footer__wrapper {
     max-width: 688px;
     width: 90%;
+    padding: 50px 0;
+    grid-template: "heading content" 1fr / 21fr 48fr;
+  }
+
+  .page-footer__heading {
+    padding: 10px 0 0 5px;
+  }
+
+  .page-footer__content {
+    grid-template: "nav" minmax(min-content, 4fr) "info" min-content "social" min-content "text" minmax(150px, max-content)
+          / 1fr;
+  }
+
+  .page-footer__nav {
+    display: flex;
+  }
+
+  .page-footer__social {
+    padding-left: 30px;
+  }
+
+  .page-footer__info {
+    padding: 6px 10px 0 20px;
+
+    p {
+      padding: 14px;
+      line-height: 24px;
+    }
+  }
+
+  .page-footer__text {
+    padding: 12px 0 10px 30px;
+    align-self: end;
+
+    p {
+      font-size: 14px;
+      line-height: 24px;
+      padding-bottom: 10px;
+    }
   }
 }
 
@@ -120,14 +169,37 @@
   .page-footer__wrapper {
     width: 95%;
     margin: 0 auto;
-    padding: 100px 0;
     display: block;
     min-width: 320px;
+    padding: 50px 0;
   }
 
   .page-footer__heading {
+    padding: 10px 30px 30px;
+  }
+
+  .page-footer__copyright {
+    padding: 10px 0 22px;
+  }
+
+  .page-footer__name {
+    padding-bottom: 15px;
+  }
+
+  .page-footer__desc {
+    span {
+      display: inline;
+    }
+  }
+
+  .page-footer__content {
     display: block;
     padding: 0;
-    width: 100%;
+  }
+
+  .page-footer__info {
+    p {
+      padding-bottom: 20px;
+    }
   }
 }

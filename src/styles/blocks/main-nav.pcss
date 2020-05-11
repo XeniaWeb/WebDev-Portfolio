@@ -4,13 +4,6 @@
   position: relative;
 }
 
-.logo-web {
-  fill: $text-color;
-}
-
-.logo-xenia {
-  fill: $soft-color;
-}
 
 .main-nav__item {
   display: flex;
@@ -20,6 +13,10 @@
   align-items: center;
   justify-content: center;
   position: relative;
+
+  &--footer {
+    min-width: 120px;
+  }
 
   &:hover {
     font-weight: 600;
@@ -53,11 +50,22 @@
 @include desktop {
   .main-nav__item {
     min-width: 100px;
+
+    &--footer {
+      min-width: 116px;
+    }
   }
 }
 
 @include tablets {
+
   .main-nav {
     display: none;
+    font-size: 14px;
+    line-height: 30px;
   }
+}
+
+@include phones {
+
 }
