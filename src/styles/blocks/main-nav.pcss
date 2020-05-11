@@ -4,6 +4,14 @@
   position: relative;
 }
 
+.logo-web {
+  fill: $text-color;
+}
+
+.logo-xenia {
+  fill: $soft-color;
+}
+
 .main-nav__item {
   display: flex;
   box-sizing: border-box;
@@ -39,5 +47,17 @@
     display: block;
     padding: 10px 10px;
     text-decoration: none;
+  }
+}
+
+@include desktop {
+  .main-nav__item {
+    min-width: 100px;
+  }
+}
+
+@include tablets {
+  .main-nav {
+    display: none;
   }
 }

@@ -14,15 +14,15 @@ section#works.works
           .slider__content
             ul.slaider__images
               -var images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"];
-                each item in images
+              each item in images
                   li.slider__item
                     +image(`${item}`, "slider__image", "", 991, 556)
             ul.slider__previews
-              -var previews = ["slide-preview_hd_01@1x.jpg", "slide-preview_hd_02@1x.jpg", "slide-preview_hd_03@1x.jpg", "slide-preview_hd_04@1x.jpg"];
-                each item in previews
+              -var previews = [["slide-preview_hd_01@1x.jpg", "slider__preview-link--active"], ["slide-preview_hd_02@1x.jpg", ""], ["slide-preview_hd_03@1x.jpg", ""], ["slide-preview_hd_04@1x.jpg", ""]];
+              each item in previews
                   li.slider__preview
-                    a(href="#").slider__preview-link
-                      +image(`${item}`, "slider__preview-image", "Preview of my work", 178, 100)
+                    a(href="#" class=`${item[1]}`).slider__preview-link
+                      +image(`${item[0]}`, "slider__preview-image", "Preview of my work", 178, 100)
           .works__nav.slider__nav
             .button(tabindex="0").slider__nav-btn.slider__nav-btn--square
               +icon("arrow", "slider__arrow slider__arrow--up", 10, 10)
@@ -30,8 +30,8 @@ section#works.works
               +icon("arrow", "slider__arrow slider__arrow--down", 10, 10)
       .works__right.sleider__about
         ul.works__tags
-          -var tags =["HTML", "CSS", "JavaScript"];
-            each item in tags
+          -var tags = ["HTML", "CSS", "JavaScript"];
+          each item in tags
               li.works__tag.tag #{item}
         h3.works__subtitle.slider__title Сайт школы <br> образования
         .works__desc

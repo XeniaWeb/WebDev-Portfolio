@@ -1,5 +1,16 @@
 .home-section {
-  background: $bg-color-light url("../images/bg/bg-mountain.jpg") 0 0;
-  background-size: cover;
- min-height: 150vh;
+  //background: $bg-color-light url("../images/bg/bg-mountain.jpg") no-repeat  center 0;
+  //background-size: auto 100%;
+  min-height: 170vh;
+}
+
+.home-section__wrapper {
+  position: relative;
+}
+
+@include desktop {
+  .home-section {
+    background: $bg-color-light url("../images/bg/bg-mountain.jpg") no-repeat  70% 0;
+    background-size: auto 100%;
+  }
 }

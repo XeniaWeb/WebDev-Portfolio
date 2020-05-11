@@ -2,32 +2,33 @@ include ../mixins.pug
 
 section#about.about
   .container.about__wrapper
-    .about__left
-      .user-info
-        .user-info__avatar.avatar
-          +image("user.jpg", "user-info__avatar-image avatar__image", "Photo Xenia Bürki", 211, 211)
-        .user-info__content
-          -
-            var userInfo = [
-              ['Родилась', 'в СССР'],
-              ['Образование', 'Высшее'],
-              ['Проживаю', 'в Швейцарии']
-            ];
-          table.user-info__data
-            tbody.user-info__body
-              each row in userInfo
-                tr
-                  th #{row[0]}
-                  td #{row[1]}
+    .about__left.user-info
+      .user-info__avatar.avatar
+        +image("user.jpg", "user-info__avatar-image avatar__image", "Photo Xenia Bürki", 211, 211)
+      .user-info__content
+        -
+          var userInfo = [
+            ['Родилась', 'в СССР'],
+            ['Образование', 'Высшее'],
+            ['Проживаю', 'в Швейцарии']
+          ];
+        table.user-info__data
+          tbody
+            each row in userInfo
+              tr
+                th #{row[0]}
+                td #{row[1]}
 
     .about__right
-      p.about__desc Привет, меня зовут
-      h2.about__title.section-title Xenia Bürki / Оксана Бюрки
-      .about__text
-        p.
-          Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-        p.about__desc Пишите: xenia1898@gmail.com <br>Звоните: +7-923-1000-918
+      .about__content
+        p.about__desc Привет, меня зовут
+        h2.about__title.section-title Xenia Bürki
+          span  / Оксана Бюрки
+        .about__text
+          p.
+            Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+          p.about__desc Пишите: xenia1898@gmail.com <br>Звоните: +7-923-1000-918
       .about__postscript
         p.
-          Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+          Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
 

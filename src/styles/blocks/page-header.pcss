@@ -1,30 +1,127 @@
 .page-header {
-  display: flex;
-  justify-content: space-between;
+  grid-area: header;
+  display: grid;
+  grid-template: "logo navbar social" minmax(100px, max-content)
+                  / 37fr 84fr 32fr;
   align-items: center;
-  height: 15vh;
-}
-
-.page-header__main-nav {
-  display: flex;
-  min-height: 100px;
+  padding: 25px 0 0;
 }
 
 .page-header__logo-link {
+  grid-area: logo;
   display: block;
-  text-decoration: none;
-  font-size: 36px;
-  font-weight: 800;
+  box-sizing: border-box;
+}
 
-  @include desktop {
-    color: yellow;
+.page-header__logo-icon {
+  width: 145px;
+  height: 50px;
+}
+
+.page-header__main-nav {
+  grid-area: navbar;
+  display: flex;
+  min-height: 100px;
+
+  .main-nav__item {
+    min-height: 60px;
+  }
+}
+
+.page-header__nav-btn {
+  display: none;
+}
+
+.page-header__social {
+  grid-area: social;
+  justify-self: end;
+}
+
+@include desktop {
+  .page-header {
+    grid-template: "logo navbar social" minmax(100px, max-content)
+                  / 20fr 65fr 23fr;
+    padding: 25px 0 0;
   }
 
-  @include tablets {
-    color: rosybrown;
+  .page-header__main-nav {
+    min-height: 60px;
+  }
+}
+
+@include tablets {
+  .page-header {
+    grid-area: header;
+    display: grid;
+    grid-template: "logo social nav" minmax(100px, max-content)
+                  / 20fr 37fr 11fr;
+    align-items: center;
+    padding: 0;
   }
 
-  @include phones {
-    color: green;
+  .page-header__main-nav {
+    display: none;
+  }
+
+  .page-header__nav-btn {
+    grid-area: nav;
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    background: transparent;
+    justify-self: end;
+
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: 10px;
+      left: 8px;
+      width: 24px;
+      height: 4px;
+
+
+      background-color: $text-color;
+      box-shadow: 0 8px 0 0 $text-color,
+      0 16px 0 0 $text-color;
+
+
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      &::after {
+        background-color: $color-lila-hover;
+        box-shadow: 0 8px 0 0 $color-lila-hover,
+        0 16px 0 0 $color-lila-hover;
+
+      }
+    }
+
+    &:active,
+    &:focus {
+      cursor: pointer;
+
+      &::after {
+        background-color: rgba($color-indigo, 0.6);
+        box-shadow: 0 8px 0 0 rgba($color-indigo, 0.6),
+        0 16px 0 0 rgba($color-indigo, 0.6);
+      }
+    }
+  }
+}
+
+@include phones {
+  .page-header {
+    grid-area: header;
+    display: grid;
+    grid-template: "logo nav" minmax(100px, max-content)
+      / 20fr 6fr;
+  }
+
+  .page-header__social {
+    display: none;
   }
 }

@@ -12,7 +12,7 @@ footer.page-footer
       .page-footer__nav
         ul.main-nav.main-nav--footer
           each item in mainMenu
-            li.main-nav__item.main-nav__item--footer
+            li(class="main-nav__item" + `${item.status}`).main-nav__item.main-nav__item--footer
               a(href=`#${item.path}`) #{item.text}
 
       .page-footer__info-block

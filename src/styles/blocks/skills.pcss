@@ -1,5 +1,6 @@
 .skills {
   position: relative;
+  background: white;
 }
 
 .skills__triangles {
@@ -14,8 +15,9 @@
 .skills__wrapper {
   display: flex;
   flex-direction: row-reverse;
-  width: 1480px;
   padding: 100px 0 120px;
+
+
 }
 
 .skills__container {
@@ -50,4 +52,63 @@
   width: 712px;
   height: 627px;
   flex-shrink: 0;
+}
+
+@include desktop {
+  .skills__wrapper {
+    max-width: 1080px;
+  }
+
+  .skills__triangles {
+    height: 50px;
+  }
+}
+
+@include tablets {
+  .skills__wrapper {
+    max-width: 688px;
+    width: 90%;
+  }
+
+  .skills__triangles {
+    height: 50px;
+  }
+}
+
+@include phones {
+  .skills__wrapper {
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 480px;
+    min-width: 320px;
+  }
+
+  .skills__container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .skills__title-block {
+    padding: 0;
+  }
+
+  .skills__description {
+    width: 100%;
+
+    p {
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+
+  .skills__values {
+    padding: 20px 0 0;
+  }
+
+  .skills__picture {
+    margin: 0;
+    width: 270px;
+    height: 240px;
+  }
 }
