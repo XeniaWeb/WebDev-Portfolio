@@ -4,6 +4,12 @@
   }
 }
 
+@mixin desktopBig() {
+  @media screen and (max-width: $bp-desktop-big) {
+    @content;
+  }
+}
+
 @mixin desktop() {
   @media screen and (max-width: $bp-desktop) {
     @content;

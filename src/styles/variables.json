@@ -13,9 +13,11 @@
   "text-color-dark": "#2d3c4e",
 
   "soft-color": "#ebea89",
+  "yellow-color": "#ffc600",
   "active-color": "#f29400",
   "links-color": "#4b6fd7",
   "bp-desktop-hd": "1800px",
+  "bp-desktop-big": "1480px",
   "bp-desktop": "1200px",
   "bp-tablets": "768px",
   "bp-phones": "480px"

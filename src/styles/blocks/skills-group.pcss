@@ -1,15 +1,90 @@
-.skills-group__list{
+.skills-group {
+  display: grid;
+  grid-template: ". title " minmax(50px, min-content) "list list" min-content / 20px 1fr;
+  margin-bottom: 10px;
+}
+
+
+.skills-group__title {
+  grid-area: title;
+  font-size: 24px;
+  line-height: 48px;
+  font-weight: 700;
+}
+
+.skills-group__list {
+  grid-area: list;
   display: flex;
   flex-wrap: wrap;
 }
 
 .skills-group__item {
-  display: block;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
 }
 
-.skills-group__title {
-  padding: 0 100px 0 25px;
-  font-size: 24px;
-  line-height: 53px;
-  font-weight: 700;
+@include desktopBig {
+  .skills-group__item {
+    width: 178px;
+    height: 178px;
+  }
 }
+
+@include desktop {
+  .skills-group {
+    display: grid;
+    grid-template: ". title " minmax(60px, min-content) "list list" min-content / 10px 1fr;
+    margin-bottom: 25px;
+
+  }
+}
+@include tablets {
+  .skills-group {
+    display: grid;
+    grid-template: "title " minmax(45px, min-content) "list" min-content / 1fr;
+    margin-bottom: 25px;
+    justify-items: center;
+
+  }
+
+  .skills-group__title {
+    font-size: 18px;
+    line-height: 48px;
+  }
+
+  .skills-group__list {
+    justify-content: center;
+  }
+
+  .skills-group__item {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@include phones {
+  .skills-group {
+    display: grid;
+    grid-template: "title " minmax(45px, min-content) "list" min-content / 1fr;
+    margin-bottom: 25px;
+  }
+
+  .skills-group__title {
+
+  }
+
+  .skills-group__list {
+    justify-content: center;
+  }
+
+  .skills-group__item {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+
+

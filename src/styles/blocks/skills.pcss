@@ -13,28 +13,21 @@
 }
 
 .skills__wrapper {
-  display: flex;
-  flex-direction: row-reverse;
-  padding: 100px 0 120px;
+  padding: 150px 0 120px;
+  position: relative;
 
-
-}
-
-.skills__container {
-  width: 80%;
-  margin-left: auto;
-}
-
-.skills__title-block {
-  padding: 10px 100px 50px 10px;
+  display: grid;
+  grid-template: ". title title ." minmax(90px, max-content) ". desc desc ." min-content "pic desc desc ." minmax(165px, min-content) "pic . value value" max-content
+        / 540fr 110fr 580fr 330fr;
 }
 
 .skills__title {
-  padding: 20px 0 50px;
+  grid-area: title;
+  display: block;
 }
 
 .skills__description {
-  width: 70%;
+  grid-area: desc;
 
   p {
     font-size: 16px;
@@ -43,24 +36,36 @@
 }
 
 .skills__values {
-  padding: 20px 0 0 115px;
+  grid-area: value;
 }
 
 .skills__picture {
+  grid-area: pic;
   display: block;
-  margin: 143px -85px 0 -137px;
-  width: 712px;
+  position: absolute;
+  top: 25px;
+  left: -40px;
+  width: 480px;
   height: 627px;
-  flex-shrink: 0;
 }
 
 @include desktop {
   .skills__wrapper {
     max-width: 1080px;
+    padding: 162px 0 70px;
+
+    display: grid;
+    grid-template: ". title title ." minmax(90px, max-content) ". desc desc ." min-content "pic desc desc ." minmax(165px, min-content) "pic . value value" max-content
+        / 290fr 80fr 640fr 80fr;
   }
 
   .skills__triangles {
-    height: 50px;
+    height: 80px;
+  }
+
+  .skills__picture {
+    top: 45px;
+    left: -185px;
   }
 }
 
@@ -68,36 +73,72 @@
   .skills__wrapper {
     max-width: 688px;
     width: 90%;
+    padding: 110px 0 60px;
+
+    display: grid;
+    grid-template: "title" minmax(85px, max-content) "desc" minmax(115px, min-content) "value" min-content "pic" max-content
+        / 1fr;
+    justify-items: center;
+
   }
 
   .skills__triangles {
     height: 50px;
   }
+
+  .skills__title {
+    grid-area: title;
+    display: block;
+    font-size: 30px;
+    line-height: 36px;
+    margin: 0 20%;
+    text-align: center;
+  }
+
+  .skills__description {
+    grid-area: desc;
+    margin: 0 15%;
+
+    p {
+      text-align: center;
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+
+  .skills__values {
+    grid-area: value;
+  }
+
+  .skills__picture {
+    display: block;
+    position: static;
+    width: 220px;
+    height: 280px;
+    margin-top: 70px;
+  }
 }
 
 @include phones {
   .skills__wrapper {
-    display: none;
-    margin: 0 auto;
-    padding: 20px;
+    width: 90%;
     min-width: 320px;
+    padding: 85px 0 60px;
   }
 
-  .skills__container {
-    width: 100%;
-    margin: 0;
-  }
+  .skills__title {
+    margin: 0 0 20px 10%;
+    text-align: left;
+    font-size: 24px;
+    line-height: 36px;
 
-  .skills__title-block {
-    padding: 0;
   }
 
   .skills__description {
-    width: 100%;
+    margin: 0 0 30px 10%;
 
     p {
-      font-size: 14px;
-      line-height: 24px;
+      text-align: left;
     }
   }
 
@@ -107,7 +148,7 @@
 
   .skills__picture {
     margin: 0;
-    width: 270px;
+    width: 180px;
     height: 240px;
   }
 }
