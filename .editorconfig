@@ -341,7 +341,7 @@ ij_shell_redirect_followed_by_space = false
 ij_shell_switch_cases_indented = false
 
 [{*.cjs,*.js}]
-indent_size = 4
+indent_size = 2
 indent_style = space
 tab_width = 4
 ij_continuation_indent_size = 4

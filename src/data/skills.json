@@ -1,0 +1,93 @@
+[
+  {
+    "title": "Back-end",
+    "skills": [
+      {
+        "id": 1,
+        "title": "PHP",
+        "percent": "-80s"
+      },
+      {
+        "id": 2,
+        "title": "Symfony",
+        "percent": "-40s"
+      },
+      {
+        "id": 3,
+        "title": "REST API",
+        "percent": "-60s"
+      },
+      {
+        "id": 4,
+        "title": "Laravel",
+        "percent": "-60s"
+      },
+      {
+        "id": 5,
+        "title": "MySQL",
+        "percent": "-40s"
+      },
+      {
+        "id": 6,
+        "title": "WordPress",
+        "percent": "-80s"
+      },
+      {
+        "id": 7,
+        "title": "Magento",
+        "percent": "-30s"
+      }
+    ]
+  },
+  {
+    "title": "Front-end",
+    "skills": [
+      {
+        "id": 1,
+        "title": "HTML5",
+        "percent": "-90s"
+      },
+      {
+        "id": 2,
+        "title": "CSS3",
+        "percent": "-80s"
+      },
+      {
+        "id": 3,
+        "title": "JavaScript",
+        "percent": "-13s"
+      },
+      {
+        "id": 4,
+        "title": "React & Vue.js",
+        "percent": "-40s"
+      }
+    ]
+  },
+
+  {
+    "title": "Workflow",
+    "skills": [
+      {
+        "id": 1,
+        "title": "Git",
+        "percent": "-35s"
+      },
+      {
+        "id": 2,
+        "title": "Terminal",
+        "percent": "-13s"
+      },
+      {
+        "id": 3,
+        "title": "Gulp",
+        "percent": "-50s"
+      },
+      {
+        "id": 4,
+        "title": "Webpack",
+        "percent": "-25s"
+      }
+    ]
+  }
+]

@@ -1,16 +1,14 @@
 .skill {
-  display: block;
   position: relative;
-  overflow: hidden;
+   display: grid;
+  justify-items: center;
+  align-items: center;
 }
 
 .skill__title {
   width: 50%;
   display: block;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -65%);
   font-size: 18px;
   line-height: 30px;
   font-weight: 700;
@@ -48,5 +46,18 @@
 @include tablets {
   .skill__circle {
     r: 56px;
+
+    &--up {
+      stroke-dasharray: 352;
+    }
+  }
+
+  @keyframes alternateCircle {
+    from {
+      stroke-dashoffset: 352;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
   }
 }
