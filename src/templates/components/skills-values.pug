@@ -1,0 +1,17 @@
+script(type="text/x-template")#skills-list.skills-list
+  ul.user-skills
+    include ../../data/var.pug
+      each item in skillValue
+        li.user-skills__item.skills-group
+          h3.skills-group__title #{item[0]}
+          ul.skills-group__list
+            each skill in item[1]
+              li.skills-group__item.skill
+                svg.skill__shape(viewBox="0 0 160 160" width="160" height="160" preserveAspectRatio="none")
+                  defs
+                    linearGradient#skill__gradient(x1="0" y1="50%" x2="100%" y2="50%")
+                      stop(offset="40%" stop-color="#5500f2")
+                      stop(offset="100%" stop-color="#ad00ed")
+                  circle.skill__circle.skill__circle--down(r="68" cx="80" cy="80")
+                  circle.skill__circle.skill__circle--up(r="68" cx="80" cy="80" stroke="url(#skill__gadient)" transform="rotate(180 80 80)" style=`animation-delay: ${skill[1]}`)
+                .skill__title #{skill[0]}

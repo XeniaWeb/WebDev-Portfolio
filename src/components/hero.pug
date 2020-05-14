@@ -25,14 +25,14 @@ section.hero
 
         //img(src=require("images/content/xeniaweb4.png") class="page-header__logo-icon" alt="Logo XeniaWeb" width="145" heith="50")
       ul.page-header__main-nav.main-nav
-        include ../var
+        include ../data/var
           each item in mainMenu
             li(class=`${item.status}`).main-nav__item
               a(href=`#${item.path}`) #{item.text}
       button.page-header__nav-btn()
         span.visually-hidden Открыть меню
       ul.page-header__social.social
-        include ../var
+        include ../data/var
           each item in socialList
             li.social__item
               a(href=item.path target="_blank").social__link
