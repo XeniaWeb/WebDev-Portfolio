@@ -16,6 +16,12 @@
   }
 }
 
+@mixin tabletsBig() {
+  @media screen and (max-width: $bp-tablets-big) {
+    @content;
+  }
+}
+
 @mixin tablets() {
   @media screen and (max-width: $bp-tablets) {
     @content;

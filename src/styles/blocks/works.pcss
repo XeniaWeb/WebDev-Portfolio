@@ -13,17 +13,31 @@
 
 .works__wrapper {
   margin: 0 auto;
+  max-width: 1480px;
   min-height: 50vh;
-  padding: 0 0 160px;
+  padding: 0 7px 250px;
+  display: grid;
+  grid-template: "title" min-content "slider" max-content / 1fr;
+  grid-row-gap: 85px;
 }
 
 .works__container {
-  display: flex;
+  display: grid;
+  grid-template: "left number right" 1fr
+          / 980fr 160fr 330fr;
+}
+
+.works__left {
+  grid-area: left;
+  display: grid;
 }
 
 .works__slider {
-  display: block;
+  display: grid;
+  grid-template-rows: minmax(min-content, 556);
+  grid-template-columns: 1fr;
   position: relative;
+  align-items: start;
 
   &::before {
     display: block;
@@ -41,16 +55,6 @@
   }
 }
 
-.works__title {
-  padding: 10px 0 85px;
-}
-
-.works__left {
-  display: block;
-  padding: 0 160px 0 0;
-  width: 77%;
-}
-
 .works__nav {
   position: absolute;
   bottom: -50px;
@@ -58,9 +62,12 @@
 }
 
 .works__right {
-  display: block;
-  min-height: 500px;
-  width: 23%;
+  grid-area: right;
+  display: grid;
+  grid-template: "tags" minmax(65px, min-content) "title" minmax(105px, max-content) "desc" min-content "link" min-content
+            / 1fr;
+  align-items: start;
+  grid-row-gap: 20px;
 }
 
 .works__tags {
@@ -77,23 +84,114 @@
   }
 }
 
-.works__subtitle {
-  padding: 35px 0 30px;
-}
-
 .works__desc {
-  width: 100%;
-
   p {
+    padding-bottom: 8px;
     font-weight: 600;
     font-size: 16px;
     line-height: 30px;
     opacity: 0.7;
+
+    span {
+      display: block;
+    }
+  }
+}
+
+@include desktop {
+  .works__wrapper {
+    max-width: 1080px;
+    padding: 0 5px 250px;
+    grid-row-gap: 60px;
+  }
+
+  .works__container {
+    display: grid;
+    grid-template: "left number right" 1fr
+          / minmax(580px, 623fr) 105fr 330fr;
+  }
+}
+
+@include tabletsBig {
+  .works__container {
+    display: grid;
+    grid-template: "left number" max-content "right right" 1fr
+          / 660fr 50fr;
+    grid-row-gap: 100px;
+  }
+
+  .works__right {
+    justify-items: center;
+
+  }
+}
+
+@include tablets {
+  .works__wrapper {
+    max-width: 688px;
+    padding: 0 7px 250px;
+    grid-row-gap: 50px;
+  }
+
+  .works__right {
+    grid-area: right;
+    display: grid;
+    grid-template: "tags" minmax(65px, min-content) "title" minmax(60px, max-content) "desc" min-content "link" min-content
+            / 1fr;
+    justify-items: center;
+    align-items: start;
+    grid-row-gap: 0;
+  }
+
+  .works__desc {
+    text-align: center;
+
+    p {
+      margin: 0 15%;
+      padding-bottom: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 30px;
+
+      span {
+        display: inline;
+        padding-left: 10px;
+      }
+    }
   }
 }
 
 @include phones {
   .works__wrapper {
-    display: none;
+    width: 100%;
+    min-width: 320px;
+    padding: 0 0 250px;
+    grid-row-gap: 22px;
+    justify-items: center;
+  }
+
+  .works__container {
+    display: grid;
+    grid-template: "left" max-content "right" 1fr
+          / 1fr;
+    grid-row-gap: 10px;
+  }
+
+  .works__right {
+    padding: 0 30px;
+  }
+
+  .works__desc {
+    text-align: left;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .works__nav {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
   }
 }
