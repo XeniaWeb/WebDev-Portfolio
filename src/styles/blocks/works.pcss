@@ -15,7 +15,7 @@
   margin: 0 auto;
   max-width: 1480px;
   min-height: 50vh;
-  padding: 0 7px 250px;
+  padding: 0 7px 165px;
   display: grid;
   grid-template: "title" min-content "slider" max-content / 1fr;
   grid-row-gap: 85px;
@@ -34,7 +34,7 @@
 
 .works__slider {
   display: grid;
-  grid-template-rows: minmax(min-content, 556);
+  grid-template-rows: min-content;
   grid-template-columns: 1fr;
   position: relative;
   align-items: start;
@@ -101,7 +101,7 @@
 @include desktop {
   .works__wrapper {
     max-width: 1080px;
-    padding: 0 5px 250px;
+    padding: 0 5px 120px;
     grid-row-gap: 60px;
   }
 
@@ -109,6 +109,11 @@
     display: grid;
     grid-template: "left number right" 1fr
           / minmax(580px, 623fr) 105fr 330fr;
+  }
+
+  .works__triangles {
+    bottom: -60px;
+    height: 60px;
   }
 }
 
@@ -129,7 +134,7 @@
 @include tablets {
   .works__wrapper {
     max-width: 688px;
-    padding: 0 7px 250px;
+    padding: 0 7px 30px;
     grid-row-gap: 50px;
   }
 
@@ -159,13 +164,24 @@
       }
     }
   }
+
+  .works__triangles {
+    bottom: -40px;
+    height: 40px;
+  }
+
+  .works__slider {
+    &::before {
+      display: none;
+    }
+  }
 }
 
 @include phones {
   .works__wrapper {
     width: 100%;
     min-width: 320px;
-    padding: 0 0 250px;
+    padding: 0 0 80px;
     grid-row-gap: 22px;
     justify-items: center;
   }
@@ -174,10 +190,16 @@
     display: grid;
     grid-template: "left" max-content "right" 1fr
           / 1fr;
-    grid-row-gap: 10px;
+    grid-row-gap: 65px;
   }
 
   .works__right {
+    grid-area: right;
+    display: grid;
+    grid-template: "tags" minmax(65px, min-content) "title" minmax(60px, max-content) "desc" min-content "link" min-content
+            / 1fr;
+    justify-items: left;
+    align-items: start;
     padding: 0 30px;
   }
 
@@ -194,4 +216,9 @@
     bottom: 0px;
     right: 0;
   }
+  .works__triangles {
+    bottom: -20px;
+    height: 20px;
+  }
+
 }

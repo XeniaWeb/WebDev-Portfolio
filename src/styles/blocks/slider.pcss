@@ -71,22 +71,6 @@
   height: 50px;
   position: relative;
 
-  &--round {
-    border: 1px solid $text-color;
-    border-radius: 50%;
-
-    &:hover,
-    &:focus {
-      background: rgba($color-indigo, 0.05);
-      border-color: $color-indigo;
-      fill: $color-indigo;
-    }
-
-    &:active {
-      opacity: 0.5;
-    }
-  }
-
   &--square {
     background: $text-color-dark;
     fill: white;
@@ -164,8 +148,9 @@
 @include desktop {
   .slider__image {
     display: block;
-    width: 100%;//623px;
-    height: auto; //353px;
+    width: 100%;
+  //623px; height: auto;
+  //353px;
   }
 }
 

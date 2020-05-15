@@ -1,19 +1,25 @@
-.reviews {
-  position: relative;
-}
-
 .reviews__wrapper {
   min-height: 60vh;
-  padding: 240px 0 100px;
+  padding: 260px 7px 100px;
+  position: relative;
+
+  display: grid;
+  grid-template:
+      "title nav" min-content
+      "slider slider" max-content
+        / 50fr 80fr;
+  grid-row-gap: 90px;
+  justify-items: start;
 }
 
 .reviews__title {
-  padding: 20px 0 90px;
+  grid-area: title;
+  min-width: 500px;
 }
 
 .reviews__slider {
+  grid-area: slider;
   display: flex;
-  width: 68%;
   position: relative;
 }
 
@@ -23,20 +29,34 @@
 
 .reviews__item {
   width: 50%;
+  max-width: 500px;
   padding-left: 100px;
 }
 
 .reviews__nav {
-  justify-content: space-between;
-  position: absolute;
-  top: -140px;
-  left: 50%;
-  min-width: 130px;
+  grid-area: nav;
+  align-self: start;
+  width: 130px;
 }
 
 @include desktop {
   .reviews__wrapper {
     max-width: 1080px;
+    padding: 190px 7px 100px;
+    grid-template:
+            "title nav empty" min-content
+            "slider slider empty" max-content
+        / 46fr 46fr;
+    grid-row-gap: 90px;
+
+  }
+
+  .reviews__item {
+    max-width: 460px;
+  }
+
+  .reviews__title {
+    min-width: 460px;
   }
 }
 
@@ -44,12 +64,62 @@
   .reviews__wrapper {
     max-width: 688px;
     width: 90%;
+    padding: 185px 7px 100px;
+    grid-template:
+            "title nav ." min-content
+            "slider slider ." max-content
+        / 46fr 46fr auto;
+    grid-row-gap: 40px;
+  }
+
+  .reviews__item {
+    width: 50%;
+    max-width: 340px;
+    padding: 0 20px 0 40px;
+  }
+
+  .reviews__title {
+    min-width: auto;
+
+  }
+  .reviews__nav {
+    margin-left: 60px;
   }
 }
 
 @include phones {
   .reviews__wrapper {
-    display: none;
     min-width: 320px;
+    padding: 90px 7px 100px;
+    grid-template:
+            "title" min-content
+            "nav" min-content
+            "slider" max-content
+        / 1fr;
+    grid-row-gap: 20px;
+  }
+
+  .reviews__item {
+    justify-self: center;
+    width: 100%;
+    min-width: auto;
+
+    &:last-child {
+      display: none;
+    }
+  }
+
+  .reviews__title {
+    margin: 0;
+    min-width: auto;
+    max-width: 100%;
+    justify-self: center;
+  }
+
+  .reviews__nav {
+    margin: 0;
+    min-width: auto;
+    max-width: 100%;
+    justify-self: center;
   }
 }

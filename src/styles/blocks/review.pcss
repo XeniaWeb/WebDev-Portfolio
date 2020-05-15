@@ -34,6 +34,11 @@
   margin-top: auto;
 }
 
+.review__author-photo {
+  width: 75px;
+  height: 75px;
+  flex-shrink: 0;
+}
 .review__author-about {
   padding: 0 20px 10px 25px;
 }
@@ -49,4 +54,29 @@
   line-height: 30px;
   font-weight: 600;
   opacity: 0.3;
+}
+
+@include tablets {
+  .review__icon {
+    width: 30px;
+    height: 30px;
+    left: -40px;
+  }
+
+  .review__text {
+    p {
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+
+  .review__author-name {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .review__author-photo {
+    width: 50px;
+    height: 50px;
+  }
 }
