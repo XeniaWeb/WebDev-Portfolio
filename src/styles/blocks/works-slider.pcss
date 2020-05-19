@@ -7,9 +7,6 @@
 .works-slider__presentation {
   grid-area: slider;
   display: grid;
-
-  outline: red 3px solid;
-
 }
 
 .works-slider__images {
@@ -22,7 +19,7 @@
   &::before {
     display: block;
     position: absolute;
-    content: "4";
+    content: attr(data-slide);
     width: 235px;
     height: 360px;
     top: 40px;
@@ -38,8 +35,6 @@
 .works-slider__images-container {
   display: grid;
   position: relative;
-
-  outline: greenyellow 2px solid;
 }
 
 .works-slider__item {
@@ -117,24 +112,35 @@
   height: 50px;
   position: relative;
 
-  &--square {
-    background: $text-color-dark;
-    fill: white;
+  background: $text-color-dark;
+  fill: white;
+
+  &:hover,
+  &:focus {
+    background: $color-indigo;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+
+  &:disabled {
+    fill: rgba(white, 0.3);
+    cursor: not-allowed;
 
     &:hover,
     &:focus {
-      background: $color-indigo;
+      background: $text-color-dark;
+
     }
 
     &:active {
-      opacity: 0.5;
+      opacity: 1;
     }
   }
 }
 
 .works-slider__info {
-  outline: yellowgreen 3px dashed;
-
   grid-area: info;
   display: grid;
   grid-template: "tags" minmax(65px, min-content) "title" minmax(105px, max-content) "desc" min-content "link" min-content
@@ -231,18 +237,18 @@
   }
 
   .works-slider__images {
-     &::before {
-       display: none;
-     }
-   }
+    &::before {
+      display: none;
+    }
+  }
 }
 
 @include tablets {
   .works-slider__images {
-  &::before {
-    justify-self: end;
+    &::before {
+      justify-self: end;
+    }
   }
-}
 
   .works-slider__preview-image {
     display: block;

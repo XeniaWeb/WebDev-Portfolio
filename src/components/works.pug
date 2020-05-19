@@ -8,34 +8,5 @@ section#works.works
       polygon(points="1000,0 1000,100 0,100")
   .container.works__wrapper
     h2.works__title.section-title Мои работы
-    .works__content.works-slider
-      .works-slider__presentation
-        .works-slider__images
-          .works-slider__images-container
-            ul.works-slider__images-list
-              -var images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"];
-              each item in images
-                li.works-slider__item
-                  +image(`${item}`, "works-slider__image", "", 991, 556)
-            ul.works-slider__previews
-              -var previews = [["slide-preview_hd_01@1x.jpg", "works-slider__preview-link--active"], ["slide-preview_hd_03@1x.jpg", ""], ["slide-preview_hd_04@1x.jpg", ""]];
-              each item in previews
-                li.works-slider__preview
-                  button(type="button" class=`${item[1]}`).works-slider__preview-link
-                    +image(`${item[0]}`, "works-slider__preview-image", "Preview of my work", 178, 100)
-            .works__nav.works-slider__nav
-              button(type="button" tabindex="0").works-slider__nav-btn.works-slider__nav-btn--square
-                +icon("arrow", "arrow arrow--up", 10, 10)
-              button(type="button" tabindex="0").works-slider__nav-btn.works-slider__nav-btn--square
-                +icon("arrow", "arrow arrow--down", 10, 10)
-      .works-slider__info
-        ul.works-slider__tags
-          -var tags = ["HTML", "CSS", "JavaScript"];
-          each item in tags
-            li.works-slider__tag.tag #{item}
-        h3.works-slider__title Сайт школы образования
-        .works-slider__desc
-          p Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool!
-            span 2 месяца только самых тяжелых испытаний и бессонных ночей!
-        a(href="https://loftschool.com" target="_blank").works-slider__link Посмотреть сайт
-          +icon("link", "works-slider__link-icon", 20, 20)
+    .works__content
+      #slider-component

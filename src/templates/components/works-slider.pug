@@ -1,0 +1,67 @@
+include ../../mixins.pug
+
+script(type="text/x-template")#work-container
+  .works-slider
+    presentation(
+      :currentWork="currentWork"
+      :works="works"
+      :currentIndex="currentIndex"
+      :currentSlide="currentSlide"
+      :conditionPrev="conditionPrev"
+      :conditionNext="conditionNext"
+
+      @slide="handleSlide"
+    )
+    info(
+      :currentWork="currentWork"
+    )
+
+script(type="text/x-template")#work-presentation
+  .works-slider__presentation
+    .works-slider__images(:data-slide="currentSlide")
+      .works-slider__images-container
+        ul.works-slider__images-list
+          li.works-slider__item
+            img(:src="currentWork.photo").works-slider__image
+        previews(
+          :works="works"
+          :currentIndex="currentIndex"
+          :currentWork="currentWork"
+        )
+        btns(
+          :conditionPrev="conditionPrev"
+          :conditionNext="conditionNext"
+          @slide="$emit('slide', $event)"
+        )
+
+script(type="text/x-template")#work-previews
+  ul.works-slider__previews
+    li.works-slider__preview(
+      v-for="work in works.slice( 0, 3)"
+      :key="work.id"
+      :class="{'works-slider__preview--active': currentWork.id === work.id}"
+    )
+      button(type="button").works-slider__preview-link
+        img(:src="work.photo").works-slider__preview-image
+
+script(type="text/x-template")#work-btns
+  .works__nav.works-slider__nav
+    button(@click.prevent="$emit('slide', 'prev')" type="button" tabindex="0" :disabled="conditionPrev").works-slider__nav-btn
+      +icon("arrow", "arrow arrow--up", 10, 10)
+    button(@click.prevent="$emit('slide', 'next')" type="button" tabindex="0" :disabled="conditionNext").works-slider__nav-btn
+      +icon("arrow", "arrow arrow--down", 10, 10)
+
+script(type="text/x-template")#work-info
+  .works-slider__info
+    tags(
+      :tags="tagsListArray"
+    )
+    h3.works-slider__title {{ currentWork.title }}
+    .works-slider__desc
+      p {{ currentWork.desc }}
+    a(:href="currentWork.link" target="_blank").works-slider__link Посмотреть сайт
+      +icon("link", "works-slider__link-icon", 20, 20)
+
+script(type="text/x-template")#work-tags
+  ul.works-slider__tags
+    li.works-slider__tag.tag(v-for="tag in tags" :key="tag.id") {{tag}}
