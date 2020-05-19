@@ -106,6 +106,9 @@ new Vue({
       if (value > worksAmountFromZero) this.currentIndex = 0
       if (value < 0) this.currentIndex = worksAmountFromZero
     },
+    handlePreview(previewIndex) {
+      this.currentIndex = previewIndex
+    },
     handleSlide(direction) {
       switch (direction) {
         case "prev":

@@ -11,6 +11,7 @@ script(type="text/x-template")#work-container
       :conditionNext="conditionNext"
 
       @slide="handleSlide"
+      @preview="handlePreview"
     )
     info(
       :currentWork="currentWork"
@@ -27,6 +28,7 @@ script(type="text/x-template")#work-presentation
           :works="works"
           :currentIndex="currentIndex"
           :currentWork="currentWork"
+          @preview="$emit('preview', $event)"
         )
         btns(
           :conditionPrev="conditionPrev"
@@ -37,11 +39,11 @@ script(type="text/x-template")#work-presentation
 script(type="text/x-template")#work-previews
   ul.works-slider__previews
     li.works-slider__preview(
-      v-for="work in works.slice( 0, 3)"
+      v-for="(work, index) in works.slice( 0, 3)"
       :key="work.id"
       :class="{'works-slider__preview--active': currentWork.id === work.id}"
     )
-      button(type="button").works-slider__preview-link
+      button(@click.prevent="$emit('preview', index)" type="button").works-slider__preview-link
         img(:src="work.photo").works-slider__preview-image
 
 script(type="text/x-template")#work-btns
