@@ -4,6 +4,10 @@
   "bg-color-dark": "#1f232d",
 
   "circle-color-light": "#eaeaea",
+  "color-blue-hover": "#7477ff",
+  "color-blue": "#2463e4",
+  "color-blue-deep": "#3f35cb",
+  "color-blue-text": "#383bcf",
   "color-lila": "#ad00ed",
   "color-lila-hover": "#9d00ff",
   "color-indigo": "#5500f2",

@@ -39,7 +39,7 @@ script(type="text/x-template")#work-presentation
 script(type="text/x-template")#work-previews
   ul.works-slider__previews
     li.works-slider__preview(
-      v-for="(work, index) in works.slice( 0, 3)"
+      v-for="(work, index) in works.slice( currentIndex,  currentIndex + 3)"
       :key="work.id"
       :class="{'works-slider__preview--active': currentWork.id === work.id}"
     )

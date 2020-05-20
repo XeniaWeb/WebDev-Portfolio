@@ -2,7 +2,7 @@
   grid-area: header;
   display: grid;
   grid-template: "logo navbar social" minmax(100px, max-content)
-                  / 37fr 84fr 32fr;
+                  / 32fr 100fr 35fr;
   align-items: center;
   padding: 25px 0 0;
 }
@@ -40,12 +40,13 @@
 @include desktop {
   .page-header {
     grid-template: "logo navbar social" minmax(100px, max-content)
-                  / 20fr 65fr 23fr;
+                  / 20fr 75fr 23fr;
     padding: 25px 0 0;
   }
 
   .page-header__main-nav {
     min-height: 60px;
+    justify-items: center;
   }
 }
 
@@ -80,13 +81,9 @@
       left: 8px;
       width: 24px;
       height: 4px;
-
-
       background-color: $text-color;
       box-shadow: 0 8px 0 0 $text-color,
       0 16px 0 0 $text-color;
-
-
     }
 
     &:hover {
@@ -96,7 +93,6 @@
         background-color: $color-lila-hover;
         box-shadow: 0 8px 0 0 $color-lila-hover,
         0 16px 0 0 $color-lila-hover;
-
       }
     }
 
