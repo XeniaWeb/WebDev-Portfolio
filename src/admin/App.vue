@@ -3,6 +3,8 @@
     Login
     AdminHeader
     About
+    Works
+    Reviews
 
     h4 Welcome to the Vue App
 </template>
@@ -11,9 +13,13 @@
   import AdminHeader from "./components/AdminHeader";
   import Login from "./components/Login";
   import About from "./components/About";
+  import Works from "./components/Works";
+  import Reviews from "./components/Reviews";
   export default {
     name: 'App',
     components: {
+      Reviews,
+      Works,
       About,
       Login,
       AdminHeader
