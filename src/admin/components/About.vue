@@ -19,6 +19,36 @@
 </script>
 
 <style lang="postcss" scoped>
+  @mixin desktopHd() {
+    @media screen and (max-width: $bp-desktop-hd) {
+      @content ;
+    }
+  }
+  @mixin desktopBig() {
+    @media screen and (max-width: $bp-desktop-big) {
+      @content ;
+    }
+  }
+  @mixin desktop() {
+    @media screen and (max-width: $bp-desktop) {
+      @content ;
+    }
+  }
+  @mixin tabletsBig() {
+    @media screen and (max-width: $bp-tablets-big) {
+      @content ;
+    }
+  }
+  @mixin tablets() {
+    @media screen and (max-width: $bp-tablets) {
+      @content ;
+    }
+  }
+  @mixin phones() {
+    @media screen and (max-width: $bp-phones) {
+      @content ;
+    }
+  }
   //- About =================================== TITLE ======
   .about {
     background: #f9fafe;
@@ -29,7 +59,7 @@
   .about__wrapper {
     max-width: 1080px;
     margin: 0 auto;
-    padding: 60px 0;
+    padding: 60px 0 40px;
   }
 
   .about__title-block {
@@ -97,6 +127,36 @@
     height: 387px;
     background: white;
     box-shadow: 4px 3px 20px 0 rgba(0, 0, 0, 0.07);
+  }
+
+  //- TABLETS ------------
+  @include tablets {
+
+  }
+  //- PHONES ------------
+  @include phones {
+    .about {
+      padding: 0;
+    }
+
+    .about__wrapper {
+      max-width: 100%;
+      padding: 30px 0;
+    }
+
+    .about__title-block {
+      display: block;
+      margin-bottom: 30px;
+      padding: 0 20px;
+    }
+
+    .about__title {
+      padding-bottom: 25px;
+    }
+
+    .about__content {
+      grid-template: "form" max-content / 1fr;
+    }
   }
 
 </style>

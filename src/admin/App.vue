@@ -6,7 +6,6 @@
     Works
     Reviews
 
-    h4 Welcome to the Vue App
 </template>
 
 <script>
@@ -91,34 +90,6 @@
     margin: 0 auto;
   //width: 1800px;
 
-  }
-
-  .container {
-    margin: 0 auto;
-    max-width: 1080px;
-    width: 95%;
-  // width: 1490px;
-  }
-
-  .visually-hidden {
-    position: absolute;
-
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-
-    white-space: nowrap;
-
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
-
-  .fullscreen-section {
-    height: 100vh;
-    min-height: 650px;
   }
 
   button {

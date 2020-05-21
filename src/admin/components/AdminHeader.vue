@@ -3,10 +3,9 @@
     .admin-header__panel
       .container.admin-header__wrapper
         .admin-header__info
-          .admin-header__user.user-info
-            .user-info__avatar.avatar
-              img(src="~images/content/user.jpg" alt="Photo Xenia Bürki", width="46", height="46").avatar__image
-            h1.user-info__title Xenia Bürki / Оксана Бюрки
+          .admin-header__avatar.avatar
+            img(src="~images/content/user.jpg" alt="Photo Xenia Bürki", width="46", height="46").avatar__image
+          h1.admin-header__user-name Xenia Bürki / Оксана Бюрки
           h2.admin-header__title Панель администрирования
           .admin-header__logout
             a(href="/").admin-header__logout-link Выйти
@@ -29,12 +28,51 @@
 </script>
 
 <style lang="postcss" scoped>
+  @mixin desktopHd() {
+    @media screen and (max-width: $bp-desktop-hd) {
+      @content ;
+    }
+  }
+  @mixin desktopBig() {
+    @media screen and (max-width: $bp-desktop-big) {
+      @content ;
+    }
+  }
+  @mixin desktop() {
+    @media screen and (max-width: $bp-desktop) {
+      @content ;
+    }
+  }
+  @mixin tabletsBig() {
+    @media screen and (max-width: $bp-tablets-big) {
+      @content ;
+    }
+  }
+  @mixin tablets() {
+    @media screen and (max-width: $bp-tablets) {
+      @content ;
+    }
+  }
+  @mixin phones() {
+    @media screen and (max-width: $bp-phones) {
+      @content ;
+    }
+  }
   //- Header =================== AVATAR ======
-  .avatar__image {
+  .avatar {
+    grid-area: avatar;
+    display: block;
     background: coral;
     width: 46px;
     height: 46px;
+  }
+
+  .avatar__image {
+    display: block;
+    width: 100%;
+    height: auto;
     border-radius: 50%;
+
   }
 
   //- Header ===================== .admin-header   =========
@@ -47,25 +85,25 @@
 
   .admin-header__panel {
     background: #424268;
+    color: #ffffff;
   }
 
   .admin-header__info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #ffffff;
+    display: grid;
     min-height: 80px;
-
-  }
-
-  .admin-header__user {
-    display: flex;
-    justify-content: space-between;
+    grid-template: "avatar user title logout" max-content
+        / min-content max-content auto min-content;
+    grid-column-gap: 20px;
     align-items: center;
-    margin-right: 30px;
+    align-content: center;
   }
 
   .admin-header__title {
+    grid-area: title;
+    display: block;
+    margin: 0;
+    padding: 0;
+
     font-size: 14px;
     line-height: 34px;
     font-weight: 400;
@@ -73,7 +111,7 @@
   }
 
   .admin-header__logout {
-    margin-left: auto;
+    grid-area: logout;
   }
 
   .admin-header__logout-link {
@@ -98,10 +136,12 @@
     align-items: center;
   }
 
-  //- Header ===================== .user-info  =========
-  .user-info__title {
+  .admin-header__user-name {
+    grid-area: user;
+    margin: 0;
+    padding: 0;
+    min-width: 140px;
     display: block;
-    margin-left: 20px;
     font-size: 18px;
     line-height: 34px;
     font-weight: 600;
@@ -152,6 +192,38 @@
         left: 0;
         right: 0;
       }
+    }
+  }
+
+  //- TABLETS ------------
+  @include tablets {
+    .admin-header__info {
+      min-height: 80px;
+      grid-template: "avatar user title logout" max-content
+        / min-content auto auto min-content;
+      grid-column-gap: 2%;
+
+    }
+  }
+  //- PHONES ------------
+  @include phones {
+    .admin-header__wrapper {
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 20px;
+    // width: 1490px;
+    }
+
+    .admin-header__info {
+      min-height: 80px;
+      grid-template: "avatar user" max-content "avatar logout" max-content
+        / min-content auto;
+      grid-column-gap: 10px;
+
+    }
+
+    .admin-header__title {
+      display: none;
     }
   }
 </style>
