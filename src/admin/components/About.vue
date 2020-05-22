@@ -6,9 +6,110 @@
         button(type="button").about__add-btn.add-btn Добавить группу
           .add-btn__icon +
       .about__content
-        form.about__form
-        form.about__form
-        form.about__form
+        form.form.about__form
+          .form__header
+            input.form__title.about__form-title(name="name", value="" placeholder="Название новой группы")
+            .form__buttons
+              button.form__tick-btn(type="button" name="add")
+              button.form__remove-btn(type="button" name="remove")
+          hr.form__divider
+          .form__content
+          .form__controls
+            input.form__controls-name(name="name", type="text", placeholder="Новый навык", disabled="disabled")
+            .form__controls-value-box
+              input.form__controls-value(name="name", type="number", min="0", max="100", placeholder="", disabled="disabled")
+            button.form__controls-btn(disabled="disabled")
+              .add-btn__icon.add-btn__icon--form +
+
+        form.form.about__form
+          .form__header
+            input.form__title.about__form-title(name="name", value="Frontend" placeholder="Название новой группы")
+            .form__buttons
+              button.form__edit-btn(type="button" name="edit")
+              button.form__trash-btn(type="button" name="trash")
+              button.form__tick-btn.no-displaid(type="button" name="add")
+              button.form__remove-btn.no-displaid(type="button" name="remove")
+          hr.form__divider
+          .form__content
+            .form__row
+              input.form__row-name(name="name", type="text", value="CSS" disabled="disabled")
+              .form__row-value-box
+                input.form__row-value(name="name", type="number", min="0", max="100", placeholder="", value="80", disabled="disabled")
+              .form__buttons
+                button.form__edit-btn(type="button" name="edit")
+                button.form__trash-btn(type="button" name="trash")
+                button.form__tick-btn.no-displaid(type="button" name="add")
+                button.form__remove-btn.no-displaid(type="button" name="remove")
+            .form__row
+              input.form__row-name(name="name", type="text", value="HTML" disabled=false)
+              .form__row-value-box
+                input.form__row-value(name="name", type="number", min="0", max="100", placeholder="", value="90", disabled=false)
+              .form__buttons
+                button.form__edit-btn.no-displaid(type="button" name="edit")
+                button.form__trash-btn.no-displaid(type="button" name="trash")
+                button.form__tick-btn(type="button" name="add")
+                button.form__remove-btn(type="button" name="remove")
+            .form__row
+              input.form__row-name(name="name", type="text", value="JavaScript" disabled="disabled")
+              .form__row-value-box
+                input.form__row-value(name="name", type="number", min="0", max="100", placeholder="", value="65", disabled="disabled")
+              .form__buttons
+                button.form__edit-btn(type="button" name="edit")
+                button.form__trash-btn(type="button" name="trash")
+                button.form__tick-btn.no-displaid(type="button" name="add")
+                button.form__remove-btn.no-displaid(type="button" name="remove")
+
+          .form__controls
+            input.form__controls-name(name="name", type="text", placeholder="Новый навык", disabled=false)
+            .form__controls-value-box
+              input.form__controls-value(name="name", type="number", min="0", max="100", placeholder="", disabled=false)
+            button.form__controls-btn(disabled=false)
+              .add-btn__icon.add-btn__icon--form +
+
+        form.form.about__form
+          .form__header
+            input.form__title.about__form-title(name="name", value="Frontend" placeholder="Название новой группы")
+            .form__buttons
+              button.form__edit-btn(type="button" name="edit")
+              button.form__trash-btn(type="button" name="trash")
+              button.form__tick-btn.no-displaid(type="button" name="add")
+              button.form__remove-btn.no-displaid(type="button" name="remove")
+          hr.form__divider
+          .form__content
+            .form__row
+              input.form__row-name(name="name", type="text", value="CSS" disabled="disabled")
+              .form__row-value-box
+                input.form__row-value(name="name", type="number", min="0", max="100", placeholder="", value="80", disabled="disabled")
+              .form__buttons
+                button.form__edit-btn(type="button" name="edit")
+                button.form__trash-btn(type="button" name="trash")
+                button.form__tick-btn.no-displaid(type="button" name="add")
+                button.form__remove-btn.no-displaid(type="button" name="remove")
+            .form__row
+              input.form__row-name(name="name", type="text", value="HTML" disabled=false)
+              .form__row-value-box
+                input.form__row-value(name="name", type="number", min="0", max="100", placeholder="", value="90", disabled=false)
+              .form__buttons
+                button.form__edit-btn.no-displaid(type="button" name="edit")
+                button.form__trash-btn.no-displaid(type="button" name="trash")
+                button.form__tick-btn(type="button" name="add")
+                button.form__remove-btn(type="button" name="remove")
+            .form__row
+              input.form__row-name(name="name", type="text", value="JavaScript" disabled="disabled")
+              .form__row-value-box
+                input.form__row-value(name="name", type="number", min="0", max="100", placeholder="", value="65", disabled="disabled")
+              .form__buttons
+                button.form__edit-btn(type="button" name="edit")
+                button.form__trash-btn(type="button" name="trash")
+                button.form__tick-btn.no-displaid(type="button" name="add")
+                button.form__remove-btn.no-displaid(type="button" name="remove")
+
+          .form__controls
+            input.form__controls-name(name="name", type="text", placeholder="Новый навык", disabled=false)
+            .form__controls-value-box
+              input.form__controls-value(name="name", type="number", min="0", max="100", placeholder="", disabled=false)
+            button.form__controls-btn(disabled=false)
+              .add-btn__icon.add-btn__icon--form +
 
 </template>
 
@@ -19,6 +120,15 @@
 </script>
 
 <style lang="postcss" scoped>
+  * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .no-displaid {
+    display: none;
+  }
+
   @mixin desktopHd() {
     @media screen and (max-width: $bp-desktop-hd) {
       @content ;
@@ -89,6 +199,10 @@
     font-weight: 600;
     color: $color-blue-text;
 
+    &:disabled {
+      cursor: not-allowed;
+    }
+
     &:hover,
     &:focus {
       color: $color-blue-hover;
@@ -113,6 +227,14 @@
     height: 20px;
     color: white;
     margin-right: 20px;
+
+    &--form {
+      font-size: 39px;
+      line-height: 40px;
+      width: 40px;
+      height: 40px;
+      margin-right: 0;
+    }
   }
 
   //- About =================================== CONTENT ======
@@ -124,14 +246,244 @@
 
   .about__form {
     width: 100%;
-    height: 387px;
+    /*min-height: 387px;*/
     background: white;
     box-shadow: 4px 3px 20px 0 rgba(0, 0, 0, 0.07);
   }
 
-  //- TABLETS ------------
-  @include tablets {
+  .form {
+    padding: 20px;
+  }
 
+  .form__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .form__title {
+    border: 0;
+    width: 60%;
+    padding: 5px 0;
+    flex: 0.6;
+    border-bottom: 1px solid $text-color;
+    color: $text-color;
+    background: none;
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 600;
+
+    &::placeholder {
+      color: inherit;
+      opacity: 0.5;
+    }
+  }
+
+  .form__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0.1;
+    width: 10%;
+  }
+
+  .form__tick-btn {
+    width: 15px;
+    height: 15px;
+    border: none;
+    background: svg-load("tick.svg", fill="#00d70a") center center no-repeat;
+    background-size: 15px 15px;
+    cursor: pointer;
+  }
+
+  .form__remove-btn {
+    width: 15px;
+    height: 15px;
+    border: none;
+    background: svg-load("cross.svg", fill="#bf2929") center center no-repeat;
+    background-size: 100% auto;
+    cursor: pointer;
+  }
+
+  .form__trash-btn {
+    width: 15px;
+    height: 15px;
+    border: none;
+    background: svg-load("trash.svg", fill="#a0a5b1") center center no-repeat;
+    background-size: auto 100%;
+    cursor: pointer;
+  }
+
+  .form__edit-btn {
+    width: 15px;
+    height: 15px;
+    border: none;
+    background: svg-load("pencil.svg", fill="#a0a5b1") center center no-repeat;
+    background-size: 100% auto;
+    cursor: pointer;
+  }
+
+  .form__divider {
+    color: $line-color-light;
+    margin: 20px 0;
+  }
+
+  .form__content {
+    min-height: 220px;
+  }
+
+  .form__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .form__row-name {
+    flex: 0.65;
+    max-width: 65%;
+    margin-right: 10px;
+    border: 0;
+    padding: 5px 0 5px 20px;
+    border-bottom: 1px solid $text-color;
+    color: $text-color;
+    background: none;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 600;
+
+    &:disabled {
+      opacity: 0.3;
+      border-bottom-color: transparent;
+    }
+  }
+
+  .form__row-value-box {
+    flex: 0.2;
+    max-width: 20%;
+    margin-right: 10px;
+    position: relative;
+
+    &:after {
+      content: "%";
+      position: absolute;
+      color: rgba($text-color, 0.7);
+      font-size: 16px;
+      line-height: 28px;
+      font-weight: 400;
+      display: block;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+
+  }
+
+  .form__row-value {
+    width: 100%;
+    -ms-text-align-last: right;
+    text-align: right;
+    border: 0;
+    padding: 5px 30px 5px 10px;
+    border-bottom: 1px solid $text-color;
+    color: $text-color;
+    background: none;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 600;
+
+    &:disabled {
+      opacity: 0.3;
+      border-bottom-color: transparent;
+    }
+  }
+
+  .form__controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .form__controls-name {
+    flex: 0.6;
+    max-width: 70%;
+    margin-right: 10px;
+    border: 0;
+    padding: 5px 0 5px 20px;
+    border-bottom: 1px solid $text-color;
+    color: $text-color;
+    background: none;
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 600;
+
+
+    &:disabled {
+      opacity: 0.3;
+    }
+
+    &::placeholder {
+      color: inherit;
+      opacity: 0.5;
+    }
+  }
+
+  .form__controls-value-box {
+    flex: 0.20;
+    max-width: 20%;
+    margin-right: 10px;
+    position: relative;
+
+    &:after {
+      content: "%";
+      position: absolute;
+      color: rgba($text-color, 0.7);
+      font-size: 16px;
+      line-height: 32px;
+      font-weight: 400;
+      display: block;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .form__controls-value {
+    width: 100%;
+    border: 0;
+    padding: 5px 30px 5px 10px;
+    border-bottom: 1px solid $text-color;
+    color: $text-color;
+    background: none;
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 600;
+
+    &:disabled {
+      opacity: 0.3;
+    }
+  }
+
+  .form__controls-btn {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+
+  //- TABLETS ------------
+  @include tabletsBig {
+    .about__content {
+      grid-template: "form" max-content / 1fr;
+    }
   }
   //- PHONES ------------
   @include phones {
@@ -154,9 +506,21 @@
       padding-bottom: 25px;
     }
 
-    .about__content {
-      grid-template: "form" max-content / 1fr;
+    .form__row-name,
+    .form__controls-name {
+      flex: 0.6;
+      max-width: 60%;
+    }
+
+    .form__row-value-box,
+    .form__controls-value-box {
+      flex: 0.25;
+      max-width: 25%;
+    }
+    .form__buttons {
+      flex: 0.15;
+      width: 15%;
     }
   }
-
+  //- ============================
 </style>
