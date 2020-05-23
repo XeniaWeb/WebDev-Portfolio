@@ -3,9 +3,13 @@
   "bg-color-blue": "#a5c4f3",
   "bg-color-dark": "#1f232d",
 
+  "color-ok": "#4bb133",
+  "color-warning": "#b18333",
+  "color-alarm": "#b13333",
   "circle-color-light": "#eaeaea",
   "line-color-light": "#dedee0",
   "color-blue-hover": "#7477ff",
+  "color-blue-light": "#006aed",
   "color-blue": "#2463e4",
   "color-blue-deep": "#3f35cb",
   "color-blue-text": "#383bcf",
@@ -16,6 +20,7 @@
 
   "text-color": "#414c63",
   "text-color-dark": "#2d3c4e",
+
 
   "soft-color": "#ebea89",
   "yellow-color": "#ffc600",

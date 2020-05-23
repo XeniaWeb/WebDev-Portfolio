@@ -121,7 +121,6 @@
 
 <style lang="postcss" scoped>
   * {
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
 

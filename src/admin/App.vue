@@ -5,6 +5,7 @@
     About
     Works
     Reviews
+    Messages
 
 </template>
 
@@ -14,9 +15,11 @@
   import About from "./components/About";
   import Works from "./components/Works";
   import Reviews from "./components/Reviews";
+  import Messages from "./components/Messages";
   export default {
     name: 'App',
     components: {
+      Messages,
       Reviews,
       Works,
       About,

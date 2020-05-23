@@ -6,7 +6,8 @@
       .works__editing
         form.works__edit-form
       .works__content
-        form.works__form
+        button(type="button").works__add-btn.add-btn Добавить работу
+          .add-btn__icon +
         form.works__form
         form.works__form
         form.works__form
@@ -52,6 +53,12 @@
     }
   }
   //- Works =================================== TITLE ======
+  .works__add-btn {
+    background: $color-blue-light linear-gradient(to right, $color-blue-light 0, $color-blue-deep 100%) 0 0 no-repeat;
+    background-size: 100% 100%;
+    width: 340px;
+    height: 556px;
+  }
   .works {
     background: #f9fafe;
     min-height: 60vh;
