@@ -1,5 +1,6 @@
 <template lang="pug">
   section.login
+    h1.visually-hidden Авторизация пользователя
     .login__overlay
       .login__modal
         form(method="post").login__form.login-form

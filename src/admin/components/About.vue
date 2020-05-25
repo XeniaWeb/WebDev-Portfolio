@@ -2,7 +2,7 @@
   section.about
     .container.about__wrapper
       .about__title-block
-        h2.about__title Блок «Обо мне»
+        h1.about__title Блок «Обо мне»
         button(type="button").about__add-btn.add-btn Добавить группу
           .add-btn__icon +
       .about__content
@@ -234,6 +234,10 @@
       height: 40px;
       margin-right: 0;
     }
+
+    &:hover {
+      background: linear-gradient(to left, $color-blue-hover 0, $color-blue-deep 100%);
+    }
   }
 
   //- About =================================== CONTENT ======
@@ -293,6 +297,10 @@
     background: svg-load("tick.svg", fill="#00d70a") center center no-repeat;
     background-size: 15px 15px;
     cursor: pointer;
+    &:hover {
+      background: svg-load("tick.svg", fill="#009936") center center no-repeat;
+      background-size: 15px 15px;
+    }
   }
 
   .form__remove-btn {
@@ -302,6 +310,10 @@
     background: svg-load("cross.svg", fill="#bf2929") center center no-repeat;
     background-size: 100% auto;
     cursor: pointer;
+    &:hover {
+      background: svg-load("cross.svg", fill="#e54e4e") center center no-repeat;
+      background-size: 100% auto;
+    }
   }
 
   .form__trash-btn {
@@ -311,6 +323,10 @@
     background: svg-load("trash.svg", fill="#a0a5b1") center center no-repeat;
     background-size: auto 100%;
     cursor: pointer;
+    &:hover {
+      background: svg-load("trash.svg", fill="#5872b0") center center no-repeat;
+      background-size: auto 100%;
+    }
   }
 
   .form__edit-btn {
@@ -320,6 +336,10 @@
     background: svg-load("pencil.svg", fill="#a0a5b1") center center no-repeat;
     background-size: 100% auto;
     cursor: pointer;
+    &:hover {
+      background: svg-load("pencil.svg", fill="#5872b0") center center no-repeat;
+      background-size: 100% auto;
+    }
   }
 
   .form__divider {

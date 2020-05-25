@@ -8,6 +8,7 @@
   "color-alarm": "#b13333",
   "circle-color-light": "#eaeaea",
   "line-color-light": "#dedee0",
+  "line-color-dark": "#a1a1a1",
   "color-blue-hover": "#7477ff",
   "color-blue-light": "#006aed",
   "color-blue": "#2463e4",
@@ -29,6 +30,7 @@
   "bp-desktop-hd": "1800px",
   "bp-desktop-big": "1480px",
   "bp-desktop": "1200px",
+  "bp-desktop-small": "1080px",
   "bp-tablets-big": "900px",
   "bp-tablets": "768px",
   "bp-phones": "480px"
