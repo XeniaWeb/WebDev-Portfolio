@@ -21,6 +21,7 @@
   grid-area: slider;
   display: flex;
   position: relative;
+  width: 100%;
 }
 
 .reviews__cards {
@@ -28,7 +29,6 @@
 }
 
 .reviews__item {
-  min-width: 450px;
   width: 50%;
   max-width: 500px;
   padding-left: 100px;
@@ -64,7 +64,7 @@
 @include tablets {
   .reviews__wrapper {
     max-width: 688px;
-    width: 90%;
+    width: 100%;
     padding: 185px 7px 100px;
     grid-template:
             "title nav ." min-content
@@ -74,13 +74,14 @@
   }
 
   .reviews__item {
-    width: 50%;
+    width: 80%;
     max-width: 340px;
     padding: 0 20px 0 40px;
   }
 
   .reviews__title {
-    min-width: auto;
+    min-width: unset;
+    padding-left: 20px;
 
   }
   .reviews__nav {
@@ -98,16 +99,15 @@
             "slider" max-content
         / 1fr;
     grid-row-gap: 20px;
+    width: 100%;
   }
 
   .reviews__item {
     justify-self: center;
     width: 100%;
-    min-width: auto;
-
-    &:last-child {
-      display: none;
-    }
+    max-width: unset;
+    min-width: unset;
+    padding: 0 20px;
   }
 
   .reviews__title {

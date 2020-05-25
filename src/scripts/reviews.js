@@ -27,11 +27,13 @@ new Vue({
   },
   methods: {
     next() {
-      this.$refs.flickity.next();
+      this.$refs.flickity.next()
+      this.checkButtons()
     },
 
     previous() {
-      this.$refs.flickity.previous();
+      this.$refs.flickity.previous()
+      this.checkButtons()
     },
     makeArrWithRequireImages(array) {
       return array.map((item) => {
@@ -39,6 +41,16 @@ new Vue({
         item.photo = requireImg
         return item
       })
+    },
+    checkButtons() {
+      if (this.$refs.flickity.selectedIndex() === 0 ) {
+        this.$el.querySelector('.ref-slider__nav-btn--prev').disabled = true
+      } else if (this.$refs.flickity.selectedIndex() === this.$refs.flickity.slides().length - 1 ) {
+        this.$el.querySelector('.ref-slider__nav-btn--next').disabled = true
+      } else {
+        this.$el.querySelector('.ref-slider__nav-btn--prev').disabled = false
+        this.$el.querySelector('.ref-slider__nav-btn--next').disabled = false
+      }
     },
   }
 })

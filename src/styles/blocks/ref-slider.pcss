@@ -1,3 +1,11 @@
+.flickity-viewport {
+  width: 100%;
+}
+
+.ref-slider__content {
+  width: 70%;
+}
+
 .ref-slider__nav {
   display: flex;
   justify-content: space-between;
@@ -17,12 +25,32 @@
 
   &:hover,
   &:focus {
-    background: rgba($color-indigo, 0.05);
+    background: rgba($color-indigo, 0.1);
     border-color: $color-indigo;
     fill: $color-indigo;
   }
 
   &:active {
     opacity: 0.5;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    background: transparent;
+    border-color: $text-color;
+    fill: $text-color;
+    cursor: not-allowed;
+  }
+}
+
+@include desktop {
+  .ref-slider__content {
+    width: 80%;
+  }
+}
+
+@include tabletsBig {
+  .ref-slider__content {
+    width: 100%;
   }
 }

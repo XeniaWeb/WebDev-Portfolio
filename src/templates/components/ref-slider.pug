@@ -1,11 +1,11 @@
 include ../../mixins.pug
 script(type="text/x-template").reviews#reviews-list
-  .container.reviews__wrapper
+  .container.reviews__wrapper(@click='checkButtons' @touchend='checkButtons' )
     h2.reviews__title.section-title Что обо мне говорят
     .reviews__nav.ref-slider__nav
-      button.ref-slider__nav-btn(type="button" tabindex=0 @click='previous')
+      button.ref-slider__nav-btn.ref-slider__nav-btn--prev(type="button" tabindex=0 @click='previous' :disabled='true' )
         +icon("arrow", "arrow arrow--back", 10, 10)
-      button.ref-slider__nav-btn(type="button" tabindex=0 @click='next')
+      button.ref-slider__nav-btn.ref-slider__nav-btn--next(type="button" tabindex=0 @click='next' :disabled='false')
         +icon("arrow", "arrow arrow--forward", 10, 10)
 
     .reviews__slider.ref-slider
