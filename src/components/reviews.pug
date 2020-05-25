@@ -1,25 +1,8 @@
 include ../mixins.pug
 
-section#reviews.reviews
-  .container.reviews__wrapper
-    h2.reviews__title.section-title Что обо мне говорят
-    .reviews__nav.ref-slider__nav
-      button.ref-slider__nav-btn(type="button" tabindex=0)
-        +icon("arrow", "arrow arrow--back", 10, 10)
-      button.ref-slider__nav-btn(type="button" tabindex=0)
-        +icon("arrow", "arrow arrow--forward", 10, 10)
-    .reviews__slider.ref-slider
-      .ref-slider__content
-        ul.reviews__cards.ref-slider__cards
-          include ../data/var
-            each item in reviews
-              li.reviews__item.review
-                .review__text
-                  p #{item.text}
-                  +icon("quote", "review__icon", 70, 60)
-                .review__author
-                  .review__author-photo
-                    +image(item.photo, "review__author-image", "Фото: #{item.reviewer}", 75, 75)
-                  .review__author-about
-                    .review__author-name #{item.reviewer}
-                    .review__author-desc #{item.about}
+section#reviews
+  h2.visually-hidden Что обо мне говорят
+  #reviews-content
+
+
+

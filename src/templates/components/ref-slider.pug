@@ -1,0 +1,23 @@
+include ../../mixins.pug
+script(type="text/x-template").reviews#reviews-list
+  .container.reviews__wrapper
+    h2.reviews__title.section-title Что обо мне говорят
+    .reviews__nav.ref-slider__nav
+      button.ref-slider__nav-btn(type="button" tabindex=0 @click='previous')
+        +icon("arrow", "arrow arrow--back", 10, 10)
+      button.ref-slider__nav-btn(type="button" tabindex=0 @click='next')
+        +icon("arrow", "arrow arrow--forward", 10, 10)
+
+    flickity(ref="flickity" :options="flickityOptions").reviews__slider.ref-slider
+      .ref-slider__content
+        ul.reviews__cards.ref-slider__cards
+          li.reviews__item.review(v-for="review in reviews" :key="review.id")
+            .review__text
+              p {{ review.text }}
+              +icon("quote", "review__icon", 70, 60)
+            .review__author
+              .review__author-photo
+                img(:src="review.photo" :alt="review.reviewer" width="75" height="75").review__author-image
+              .review__author-about
+                .review__author-name {{ review.reviewer }}
+                .review__author-desc {{ review.about }}
