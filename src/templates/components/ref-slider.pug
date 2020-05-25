@@ -8,10 +8,10 @@ script(type="text/x-template").reviews#reviews-list
       button.ref-slider__nav-btn(type="button" tabindex=0 @click='next')
         +icon("arrow", "arrow arrow--forward", 10, 10)
 
-    flickity(ref="flickity" :options="flickityOptions").reviews__slider.ref-slider
+    .reviews__slider.ref-slider
       .ref-slider__content
-        ul.reviews__cards.ref-slider__cards
-          li.reviews__item.review(v-for="review in reviews" :key="review.id")
+        flickity(ref="flickity" :options="flickityOptions").reviews__cards.ref-slider__cards
+          .reviews__item.review(v-for="review in reviews" :key="review.id")
             .review__text
               p {{ review.text }}
               +icon("quote", "review__icon", 70, 60)
