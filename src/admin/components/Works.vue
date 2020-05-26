@@ -230,8 +230,6 @@
     background: $bg-color-light;
     border: $line-color-dark 1px dashed;
     min-height: 275px;
-
-
   }
 
   .edit-form__label-text {
@@ -258,6 +256,7 @@
     min-width: 180px;
     padding: 5px 20px;
     border-radius: 50px;
+    cursor: pointer;
 
     &:hover {
       background: linear-gradient(to left, $color-blue-hover 0, $color-blue-deep 100%);
@@ -266,6 +265,10 @@
     &:active {
       opacity: 0.8;
     }
+  }
+
+  .edit-form__info {
+    grid-area: info;
   }
 
   .edit-form__label {
@@ -362,6 +365,7 @@
     font-size: 16px;
     line-height: 34px;
     font-weight: 600;
+    cursor: pointer;
 
     &:hover {
       color: $color-blue-hover;
@@ -384,6 +388,7 @@
     min-width: 180px;
     padding: 10px 20px;
     border-radius: 50px;
+    cursor: pointer;
 
     &:hover {
       background: linear-gradient(to left, $color-blue-hover 0, $color-blue-deep 100%);
@@ -429,7 +434,6 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-
   }
 
   .add-btn__icon {

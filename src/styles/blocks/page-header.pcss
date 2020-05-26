@@ -1,8 +1,8 @@
 .page-header {
   grid-area: header;
   display: grid;
-  grid-template: "logo navbar social" minmax(100px, max-content)
-                  / 32fr 100fr 35fr;
+  grid-template: "logo menu" minmax(100px, max-content)
+                  / 32fr 135fr;
   align-items: center;
   padding: 25px 0 0;
 }
@@ -18,6 +18,20 @@
   height: 50px;
 }
 
+.page-header__menu {
+  grid-area: menu;
+  display: grid;
+  grid-template: "navbar social" minmax(100px, max-content)
+                  / 100fr 35fr;
+  align-items: center;
+  position: relative;
+}
+
+.page-header__nav-btn {
+  display: none;
+  position: absolute;
+}
+
 .page-header__main-nav {
   grid-area: navbar;
   display: flex;
@@ -28,10 +42,6 @@
   }
 }
 
-.page-header__nav-btn {
-  display: none;
-}
-
 .page-header__social {
   grid-area: social;
   justify-self: end;
@@ -39,9 +49,18 @@
 
 @include desktop {
   .page-header {
-    grid-template: "logo navbar social" minmax(100px, max-content)
-                  / 20fr 75fr 23fr;
+    grid-template: "logo menu" minmax(100px, max-content)
+                  / 20fr 98fr;
     padding: 25px 0 0;
+  }
+
+  .page-header__menu {
+    grid-area: menu;
+    display: grid;
+    grid-template: "navbar social" minmax(100px, max-content)
+                  / 75fr 40fr;
+    align-items: center;
+    position: relative;
   }
 
   .page-header__main-nav {
@@ -54,14 +73,33 @@
   .page-header {
     grid-area: header;
     display: grid;
-    grid-template: "logo social nav" minmax(100px, max-content)
-                  / 20fr 37fr 11fr;
+    grid-template: "logo menu" minmax(100px, max-content)
+                  / 20fr 48fr;
     align-items: center;
     padding: 0;
+
+  }
+
+  .page-header__menu {
+    display: none;
+    //display:flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 325px;
+    height: 100vh;
+    background: #ffffff;
+    z-index: 10;
   }
 
   .page-header__main-nav {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-self: start;
+    width: 100%;
+    margin: 100px 0 30px;
   }
 
   .page-header__nav-btn {
@@ -69,10 +107,12 @@
     display: block;
     width: 40px;
     height: 40px;
-    position: relative;
-    background: transparent;
-    justify-self: end;
+    position: absolute;
 
+    right: 40px;
+    top: 40px;
+
+    background: transparent;
 
     &::after {
       position: absolute;
