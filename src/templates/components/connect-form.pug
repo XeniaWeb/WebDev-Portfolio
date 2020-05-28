@@ -1,0 +1,46 @@
+include ../../mixins.pug
+script(type="text/x-template")#connect-template
+
+  form.connect__form.form(method="post" action="#" enctype="multipart/form-data")
+    fieldset.form__set.form__set--user-data
+      .form__user-data
+        .form__user-name
+          label(for="user-name").form__label Введите ваше имя
+          .form__input-block
+            .form__icon-wrapper
+              +icon("user", "form__icon form__icon--user", 30, 30)
+            input#user-name.form__input.form__input--user-name(
+              type="text"
+              name="user-name"
+              placeholder="Введите ваше имя"
+              onfocus="this.placeholder=''"
+              )
+          .form__tooltip Слишком короткое имя
+        .form__user-email
+          label(for="user-email").form__label Введите ваш email
+          .form__input-block
+            .form__icon-wrapper
+              +icon("envelope", "form__icon form__icon--email", 30, 30)
+            input#user-email.form__input.form__input--user-email(
+              type="email"
+              name="user-name"
+              placeholder="xenia1898@gmail.com"
+              onfocus="this.placeholder=''"
+              )
+          .form__tooltip Слишком короткий Email
+
+    fieldset.form__set.form__set--message
+      label(for="message").form__label Сообщение к письму
+      .form__area-block
+        .form__icon-wrapper.form__icon-wrapper--message
+          +icon("message", "form__icon form__icon--message", 30, 30)
+        textarea#message.form__message(
+          name="message"
+          cols=60
+          rows=2
+          placeholder="Требуется ваша помощь в создании сайта. \nИнтересует цена и сроки."
+          onfocus="this.placeholder=''"
+          )
+      .form__tooltip Слишком короткое сообщение
+
+    button(type="submit").form__btn Отправить

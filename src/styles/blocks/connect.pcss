@@ -8,12 +8,38 @@
 }
 
 .connect__form {
-  //width: 58%;
+  width: 100%;
+  max-width: 860px;
 }
 
 @include desktop {
   .connect__wrapper {
-    display: none;
+    max-width: 1200px;
+    width: 90%;
     padding: 50px 0 160px;
   }
+}
+@include tablets {
+  .connect__wrapper {
+    max-width: 768px;
+    width: 95%;
+    padding: 50px 0 160px;
+    text-align: center;
+  }
+  .connect__form {
+    width: 100%;
+  }
+  .form__set {
+    text-align: left;
+  }
+}
+
+@include phones {
+  .connect__wrapper {
+    min-width: 320px;
+    width: 100%;
+    padding: 50px 30px 100px;
+    text-align: left;
+  }
+
 }

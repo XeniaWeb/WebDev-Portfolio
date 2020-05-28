@@ -25,8 +25,10 @@ section.hero
 
         //img(src=require("images/content/xeniaweb4.png") class="page-header__logo-icon" alt="Logo XeniaWeb" width="145" heith="50")
       .page-header__menu
-        button.page-header__nav-btn()
+        button.page-header__nav-btn.page-header__nav-btn--open()
           span.visually-hidden Открыть меню
+        button.page-header__nav-btn.page-header__nav-btn--close()
+          span.visually-hidden Закрыть меню
         ul.page-header__main-nav.main-nav
           include ../data/var
             each item in mainMenu
@@ -40,6 +42,9 @@ section.hero
                 a(href=item.path target="_blank").social__link
                   span.visually-hidden Я в #{item.net}
                   +icon(item.icon, "social__icon", 30, 30)
+
+
+
 
     .hero__title
       p.hero__desc Личный сайт <br> веб-разработчика

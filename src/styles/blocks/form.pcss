@@ -1,14 +1,26 @@
+
 .form__set {
   display: block;
   box-sizing: border-box;
   border: none;
   padding: 0;
+
+  &--message {
+    line-height: 30px;
+    position: relative;
+  }
 }
 
 .form__user-data {
   display: flex;
   justify-content: space-between;
   padding: 0 0 30px;
+}
+
+.form__user-name,
+.form__user-email {
+  width: 45%;
+  position: relative;
 }
 
 .form__label {
@@ -26,7 +38,6 @@
   box-sizing: border-box;
   color: $text-color;
   align-items: center;
-  max-width: 380px;
 }
 
 .form__area-block {
@@ -68,16 +79,22 @@
   }
 }
 
-.form__icon {
+.form__icon-wrapper {
   display: block;
-  fill: $text-color;
-  opacity: 0.3;
+  width: 30px;
+  flex-shrink: 0;
 
   &--message {
-    margin-top: 10px;
+    margin-top: 30px;
   }
 }
 
+.form__icon {
+  fill: $text-color;
+  opacity: 0.3;
+
+
+}
 
 .form__input,
 .form__message {
@@ -88,7 +105,8 @@
   font-size: 18px;
   line-height: 48px;
   width: 100%;
-  padding: 10px 15px;
+  padding: 10px 15px 10px 0;
+  margin-left: 15px;
 
   &::placeholder {
     color: currentColor;
@@ -102,7 +120,35 @@
 
 .form__area-block {
   display: flex;
-  align-items: baseline;
+  align-items: start;
+}
+
+.form__tooltip {
+  display: block;
+  //display: none;
+  position: absolute;
+  left: 45px;
+  bottom: 0;
+  transform: translateY(100%);
+  background: $color-alarm;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  padding: 3px 15px;
+  opacity: 1;
+
+  &:before {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateY(-100%);
+    content: "";
+    width: 0;
+    height: 0;
+    border-color: transparent transparent $color-alarm;
+    border-style: solid;
+    border-width: 0 8px 7px;
+  }
 }
 
 .form__btn {
@@ -111,7 +157,7 @@
   background: $color-indigo linear-gradient(to right, $color-lila, $color-indigo 80%);
   font-size: 18px;
   line-height: 48px;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
   min-width: 350px;
   padding: 18px 20px;
@@ -125,9 +171,64 @@
   &:active {
     opacity: 0.8;
   }
+}
 
-  @include desktop {
+@include desktop {
+  .form__btn {
     margin-top: 54px;
     padding: 16px 18px;
+  }
+}
+
+@include tablets {
+  .form__message {
+    font-size: 14px;
+    line-height: 24px;
+
+  }
+  .form__user-data,
+  .form__input {
+      font-size: 14px;
+      line-height: 30px;
+  }
+}
+@include phones {
+  .form__user-data {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form__icon {
+    display: none;
+  }
+
+  .form__message {
+    height: 120px;
+    font-size: 14px;
+    line-height: 24px;
+
+  }
+  .form__user-name,
+  .form__user-email {
+    margin-bottom: 10px;
+    width: 100%;
+
+  }
+  .form__btn {
+    margin-top: 30px;
+    font-size: 16px;
+    width: 100%;
+    min-width: 260px;
+    padding: 5px 20px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+
+    &:hover {
+      background-image: linear-gradient(to right, #9d00ff, #5900ff, #5500f2);
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
   }
 }
