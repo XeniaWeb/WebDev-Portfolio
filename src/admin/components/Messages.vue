@@ -109,7 +109,7 @@
       opacity: 0.5;
     }
   }
-
+//- MODAL ========================= MODAL =======
   .modal {
     height: 100vh;
     display: block;

@@ -1,10 +1,9 @@
 include ../../mixins.pug
 script(type="text/x-template")#connect-template
-
-  form.connect__form.form(method="post" action="#" enctype="multipart/form-data")
+  form.connect__form.form(@submit.prevent="submitForm" )
     fieldset.form__set.form__set--user-data
       .form__user-data
-        .form__user-name
+        .form__user-name(:class="{error: !userNameValid}")
           label(for="user-name").form__label Введите ваше имя
           .form__input-block
             .form__icon-wrapper
@@ -12,24 +11,26 @@ script(type="text/x-template")#connect-template
             input#user-name.form__input.form__input--user-name(
               type="text"
               name="user-name"
+              @input="validateName"
               placeholder="Введите ваше имя"
               onfocus="this.placeholder=''"
               )
-          .form__tooltip Слишком короткое имя
-        .form__user-email
+          .form__tooltip {{ userNameError }}
+        .form__user-email(:class="{error: !userEmailValid}")
           label(for="user-email").form__label Введите ваш email
           .form__input-block
             .form__icon-wrapper
               +icon("envelope", "form__icon form__icon--email", 30, 30)
             input#user-email.form__input.form__input--user-email(
               type="email"
-              name="user-name"
+              name="user-email"
+              @input="validateEmail"
               placeholder="xenia1898@gmail.com"
               onfocus="this.placeholder=''"
               )
-          .form__tooltip Слишком короткий Email
+          .form__tooltip  {{ userEmailError }}
 
-    fieldset.form__set.form__set--message
+    fieldset.form__set.form__set--message(:class="{error: !messageValid}")
       label(for="message").form__label Сообщение к письму
       .form__area-block
         .form__icon-wrapper.form__icon-wrapper--message
@@ -38,9 +39,10 @@ script(type="text/x-template")#connect-template
           name="message"
           cols=60
           rows=2
+          @input="validateMessage"
           placeholder="Требуется ваша помощь в создании сайта. \nИнтересует цена и сроки."
           onfocus="this.placeholder=''"
           )
-      .form__tooltip Слишком короткое сообщение
+      .form__tooltip {{ messageError }}
 
     button(type="submit").form__btn Отправить

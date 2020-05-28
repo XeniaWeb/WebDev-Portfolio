@@ -8,10 +8,22 @@
           ul.login-form__list
             li.login-form__item.login-form__item--login
               label.login-form__label(for="user-login") Логин
-              input.login-form__input.login-form__input--login(type="text" name="user-login" id="user-login" placeholder="Введите логин")
+              input.login-form__input.login-form__input--login(
+                type="text"
+                name="user-login"
+                id="user-login"
+                placeholder="Введите логин"
+                onfocus="this.placeholder=''"
+                )
             li.login-form__item.login-form__item--pass
               label.login-form__label(for="user-password") Пароль
-              input.login-form__input.login-form__input--pass(type="password" name="user-password" id="user-password" placeholder="Введите пароль")
+              input.login-form__input.login-form__input--pass(
+                type="password"
+                name="user-password"
+                id="user-password"
+                placeholder="Введите пароль"
+                onfocus="this.placeholder=''"
+                )
           button.login-form__btn(type="submit") Отправить
           button.login-form__close(type="button" tabindex=0)
             span.visually-hidden Закрыть

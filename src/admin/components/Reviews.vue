@@ -54,7 +54,7 @@
                 .review__author-desc Основатель Loftschool
             hr.form__divider
             .review__text
-              p     "text": "Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!"
+              p Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
 
             .reviews__control.control
               a(href="" tabindex=0).control__btn.control__btn--edit Править
@@ -68,7 +68,7 @@
                 .review__author-desc Основатель Loftschool
             hr.form__divider
             .review__text
-              p     "text": "Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!"
+              p Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
 
             .reviews__control.control
               a(href="" tabindex=0).control__btn.control__btn--edit Править
