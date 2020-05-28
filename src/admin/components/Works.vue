@@ -558,12 +558,14 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 30px;
+    text-decoration: none;
 
     &:hover,
     &:focus {
       color: $text-color;
       opacity: 0.7;
       cursor: pointer;
+      text-decoration: underline;
     }
 
     &:active {

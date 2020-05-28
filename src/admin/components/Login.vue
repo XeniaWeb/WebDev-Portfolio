@@ -46,17 +46,19 @@
     display: grid;
     background: url("~images/bg/bg-mountain.jpg") 50% 50% / cover;
     color: $text-color;
+    position: relative; //- временно
   }
 
   .login__overlay {
-    display: none;
-    /*display: flex;*/
+    /*display: none;*/
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 100vw;
     background: rgba(#2d3c4e, 0.8);
     height: 100vh;
-    position: fixed;
+    /*position: fixed;*/
+    position: absolute; //- временно
     left: 0;
     top: 0;
     z-index: 100;
