@@ -11,10 +11,10 @@
 
 <script>
   import AdminHeader from "./components/AdminHeader";
-  import Login from "./components/Login";
-  import About from "./components/About";
-  import Works from "./components/Works";
-  import Reviews from "./components/Reviews";
+  import Login from "./components/Pages/Login";
+  import About from "./components/Pages/About";
+  import Works from "./components/Pages/Works";
+  import Reviews from "./components/Pages/Reviews";
   import Messages from "./components/Messages";
   export default {
     name: 'App',
