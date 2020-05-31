@@ -1,6 +1,6 @@
 include ../../mixins.pug
 script(type="text/x-template")#connect-template
-  form.connect__form.form(@submit.prevent="submitForm" )
+  form#connectForm.connect__form.form(@submit.prevent="submitForm" )
     fieldset.form__set.form__set--user-data
       .form__user-data
         .form__user-name(:class="{error: !userNameValid}")
@@ -46,3 +46,8 @@ script(type="text/x-template")#connect-template
       .form__tooltip {{ messageError }}
 
     button(type="submit").form__btn Отправить
+
+    .modal__overlay(:class="{active: overlayVisible}" @click="hideOverlay" )
+      .modal__ok
+        h4.modal__title {{ resultMassage }}
+        button.modal__btn(type="button") Закрыть

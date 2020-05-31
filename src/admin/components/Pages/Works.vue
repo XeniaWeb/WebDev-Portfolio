@@ -27,9 +27,9 @@
                 label(for="tags").edit-form__label Добавление тега
                 input(name="tags").edit-form__input#tags
               ul.edit-form__tags
-                li.edit-form__tag HTML
-                li.edit-form__tag JS
-                li.edit-form__tag php
+                li(tabindex=0).edit-form__tag HTML
+                li(tabindex=0).edit-form__tag JS
+                li(tabindex=0).edit-form__tag php
 
           .edit-form__controls
             button.edit-form__btn-cancel(type="button") Отмена
@@ -137,7 +137,10 @@
   * {
     box-sizing: border-box;
   }
-
+  *:focus {
+    outline: $color-indigo-hover 1px dashed;
+    outline-offset: 3px;
+  }
   ul {
     list-style: none;
     padding: 0;
@@ -369,6 +372,7 @@
 
     &:hover {
       color: $color-blue-hover;
+      text-decoration: underline;
     }
 
     &:active {

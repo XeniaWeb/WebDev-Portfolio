@@ -123,7 +123,10 @@
   * {
     box-sizing: border-box;
   }
-
+  *:focus {
+    outline: $color-indigo-hover 1px dashed;
+    outline-offset: 3px;
+  }
   .no-displaid {
     display: none;
   }

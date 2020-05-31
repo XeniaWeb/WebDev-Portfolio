@@ -134,7 +134,10 @@
   * {
     box-sizing: border-box;
   }
-
+  *:focus {
+    outline: $color-indigo-hover 1px dashed;
+    outline-offset: 3px;
+  }
   ul {
     list-style: none;
     padding: 0;
@@ -265,6 +268,7 @@
 
     &:hover {
       color: $color-blue-hover;
+      text-decoration: underline;
     }
 
     &:active {
@@ -343,6 +347,7 @@
 
     &:hover {
       color: $color-blue-hover;
+      text-decoration: underline;
     }
 
     &:active {

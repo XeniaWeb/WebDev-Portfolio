@@ -51,7 +51,10 @@
     clip: rect(0 0 0 0);
     overflow: hidden;
   }
-
+  *:focus {
+    outline: $color-indigo-hover 1px dashed;
+    outline-offset: 3px;
+  }
   //- Overlay ====================  LOGIN  ===
   .login {
     height: 100vh;

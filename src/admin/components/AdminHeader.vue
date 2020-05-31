@@ -12,18 +12,27 @@
     .admin-header__navbar.admin-nav
       .container.admin-header__wrapper
         ul.admin-nav__list
-          li.admin-nav__item
-            a.admin-nav__link.admin-nav__link--active(href="#") Обо мне
-          li.admin-nav__item
-            a.admin-nav__link(href="#") Работы
-          li.admin-nav__item
-            a.admin-nav__link(href="#") Отзывы
+          li.admin-nav__item(v-for="item in navItems")
+            router-link(
+              :data-text="item.title"
+              :to="item.href"
+              exact-active-class="active"
+            ).admin-nav__link
 
 </template>
 
 <script>
   export default {
-    name: "AdminHeader"
+    name: "AdminHeader",
+    data() {
+      return {
+        navItems: [
+          {title: "Обо мне", href: "/"},
+          {title: "Работы", href: "/works"},
+          {title: "Отзывы", href: "/reviews"},
+        ]
+      }
+    }
   }
 </script>
 
@@ -59,6 +68,11 @@
     }
   }
   //- Header =================== AVATAR ======
+  *:focus {
+    outline: $color-indigo-hover 1px dashed;
+    outline-offset: -2px;
+  }
+
   .avatar {
     grid-area: avatar;
     display: block;
@@ -171,13 +185,18 @@
     font-size: 16px;
     line-height: 36px;
 
+    &:before {
+      content: attr(data-text);
+    }
+
     &:hover,
     &:focus {
       font-weight: 600;
     }
 
     &--active,
-    &:active {
+    &:active,
+    &.active {
       color: $color-indigo;
       font-weight: 600;
 
@@ -219,7 +238,6 @@
       grid-template: "avatar user" max-content "avatar logout" max-content
         / min-content auto;
       grid-column-gap: 10px;
-
     }
 
     .admin-header__title {

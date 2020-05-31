@@ -1,24 +1,25 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import About from "./components/Pages/About";
-import Works from "./components/Pages/Works";
-import Reviews from "./components/Pages/Reviews";
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/about',
-    component: About
+    path: '/',
+    component: () => import('./components/Pages/About')
   },
   {
     path: '/works',
-    component: Works
+    component: () => import('./components/Pages/Works')
   },
   {
     path: '/reviews',
-    component: Reviews
+    component: () => import('./components/Pages/Reviews')
+  },
+  {
+    path: '/login',
+    component: () => import('./components/Pages/Login')
   }
 ]
 
-export default new VueRouter({routes, mode: 'history'})
+export default new VueRouter({routes})

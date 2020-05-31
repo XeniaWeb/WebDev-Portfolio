@@ -19,7 +19,7 @@
       .modal__overlay
         .modal__ok
           h4.modal__title Письмо отправлено
-          button.modal__btn(type="submit") Закрыть
+          button.modal__btn(type="button") Закрыть
 
 </template>
 
@@ -32,6 +32,10 @@
 <style lang="postcss" scoped>
   * {
     box-sizing: border-box;
+  }
+  *:focus {
+    outline: $color-indigo-hover 1px dashed;
+    outline-offset: -2px;
   }
   .visually-hidden {
     position: absolute;

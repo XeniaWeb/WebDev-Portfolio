@@ -1,11 +1,7 @@
 <template lang="pug">
   .admin-wrapper
-    Login
-    AdminHeader
-    About
-    Works
-    Reviews
-    Messages
+   AdminHeader
+   router-view
 
 </template>
 
