@@ -3,12 +3,13 @@
     h1.visually-hidden Авторизация пользователя
     .login__overlay
       .login__modal
-        form(method="post").login__form.login-form
+        form(@submit.prevent="loginUser").login__form.login-form
           h2.login__title.login-form__title Авторизация
           ul.login-form__list
             li.login-form__item.login-form__item--login
               label.login-form__label(for="user-login") Логин
               input.login-form__input.login-form__input--login(
+                v-model="user.name"
                 type="text"
                 name="user-login"
                 id="user-login"
@@ -18,6 +19,7 @@
             li.login-form__item.login-form__item--pass
               label.login-form__label(for="user-password") Пароль
               input.login-form__input.login-form__input--pass(
+                v-model="user.password"
                 type="password"
                 name="user-password"
                 id="user-password"
@@ -31,8 +33,35 @@
 </template>
 
 <script>
+  import { mapActions, mapGetters } from "vuex"
+  import $axios from "@/requests"
+  import user from "@/store/modules/user";
+  import {setAuthHttpHeaderToAxios, setToken} from "../../helpers/token";
   export default {
-    name: "Login"
+    name: "Login",
+    data() {
+      return {
+        user: {
+          name: "xeniaburki-2020-05",
+          password:  ""
+        }
+      }
+    },
+    methods: {
+      async loginUser() {
+        try {
+          const response = await $axios.post("/login", this.user)
+          const token = response.data.token
+          setToken(token)
+          setAuthHttpHeaderToAxios($axios, token)
+          await this.$router.replace("/")
+
+        } catch (error) {
+          console.log(error)
+          //TODO Tooltip for user
+        }
+      }
+    }
   }
 </script>
 

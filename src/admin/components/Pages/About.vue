@@ -6,11 +6,16 @@
         button(type="button").about__add-btn.add-btn Добавить группу
           .add-btn__icon +
       .about__content
-        form.form.about__form
+        form.form.about__form(@submit.prevent="createNewCat")
           .form__header
-            input.form__title.about__form-title(name="name", value="" placeholder="Название новой группы")
+            input.form__title.about__form-title(
+              type="text"
+              v-model="title"
+              name="name"
+              value=""
+              placeholder="Название новой группы")
             .form__buttons
-              button.form__tick-btn(type="button" name="add")
+              button.form__tick-btn(type="submit" name="add")
               button.form__remove-btn(type="button" name="remove")
           hr.form__divider
           .form__content
@@ -114,8 +119,32 @@
 </template>
 
 <script>
+  import { mapActions, mapState } from "vuex"
+  import {store} from "../../store";
+
   export default {
-    name: "About"
+    name: "About",
+    data: () => ({
+      title: ""
+    }),
+    computed: {
+      ...mapState("categories", {
+        categories: state => state.categories
+      })
+    },
+    methods: {
+      ...mapActions("categories", ["addCategory", "fetchCategories"]),
+      async createNewCat() {
+        try {
+          console.log(this.title)
+          await this.addCategory(this.title);
+          this.title = ""
+
+        } catch (error) {
+          alert(error.message);
+        }
+      }
+    }
   }
 </script>
 
@@ -123,10 +152,12 @@
   * {
     box-sizing: border-box;
   }
+
   *:focus {
     outline: $color-indigo-hover 1px dashed;
     outline-offset: 3px;
   }
+
   .no-displaid {
     display: none;
   }
@@ -300,6 +331,7 @@
     background: svg-load("tick.svg", fill="#00d70a") center center no-repeat;
     background-size: 15px 15px;
     cursor: pointer;
+
     &:hover {
       background: svg-load("tick.svg", fill="#009936") center center no-repeat;
       background-size: 15px 15px;
@@ -313,6 +345,7 @@
     background: svg-load("cross.svg", fill="#bf2929") center center no-repeat;
     background-size: 100% auto;
     cursor: pointer;
+
     &:hover {
       background: svg-load("cross.svg", fill="#e54e4e") center center no-repeat;
       background-size: 100% auto;
@@ -326,6 +359,7 @@
     background: svg-load("trash.svg", fill="#a0a5b1") center center no-repeat;
     background-size: auto 100%;
     cursor: pointer;
+
     &:hover {
       background: svg-load("trash.svg", fill="#5872b0") center center no-repeat;
       background-size: auto 100%;
@@ -339,6 +373,7 @@
     background: svg-load("pencil.svg", fill="#a0a5b1") center center no-repeat;
     background-size: 100% auto;
     cursor: pointer;
+
     &:hover {
       background: svg-load("pencil.svg", fill="#5872b0") center center no-repeat;
       background-size: 100% auto;
@@ -539,6 +574,7 @@
       flex: 0.25;
       max-width: 25%;
     }
+
     .form__buttons {
       flex: 0.15;
       width: 15%;
