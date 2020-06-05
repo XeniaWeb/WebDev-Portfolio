@@ -36,7 +36,7 @@
   import { mapActions, mapGetters } from "vuex"
   import $axios from "@/requests"
   import user from "@/store/modules/user";
-  import {setAuthHttpHeaderToAxios, setToken} from "../../helpers/token";
+  import {setAuthHttpHeaderToAxios, setToken} from "@/helpers/token";
   export default {
     name: "Login",
     data() {
@@ -52,6 +52,7 @@
         try {
           const response = await $axios.post("/login", this.user)
           const token = response.data.token
+
           setToken(token)
           setAuthHttpHeaderToAxios($axios, token)
           await this.$router.replace("/")

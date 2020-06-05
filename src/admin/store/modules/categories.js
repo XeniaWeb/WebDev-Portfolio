@@ -1,3 +1,5 @@
+import {generateStdError} from "@/helpers/errorHandler.js"
+
 export default {
   namespaced: true,
   state: {
@@ -5,159 +7,52 @@ export default {
   },
   mutations: {
     SET_CATEGORIES: (state, data) => (state.categories = data),
-    ADD_CATEGORY: (state, category) => state.categories.push(category),
-    ADD_SKILL: (state, newSkill) => {
+    ADD_CATEGORY: (state, skillCategory) => state.categories.unshift(skillCategory),
+    UPDATE_CATEGORY: (state, changedCat) => {
       state.categories = state.categories.map(category => {
-        if (category.id === newSkill.category) {
-          category.skills.push(newSkill);
-        }
-        return category;
-      });
+        return category.id === changedCat.id ? changedCat : category
+      })
     },
-    REMOVE_SKILL: (state, deletedSkill) => {
-      const removeSkillInCategory = category => {
-        category.skills = category.skills.filter(
-            skill => skill.id !== deletedSkill.id
-        );
-      };
-
-      const findCategory = category => {
-        if (category.id === deletedSkill.category) {
-          removeSkillInCategory(category);
-        }
-
-        return category;
-      };
-
-      state.categories = state.categories.map(findCategory);
-    },
-
-    EDIT_SKILL: (state, editedSkill) => {
-      const editSkillInCategory = category => {
-        category.skills = category.skills.map(skill => {
-          return skill.id === editedSkill.id ? editedSkill : skill;
-        });
-      };
-
-      const findCategory = category => {
-        if (category.id === editedSkill.category) {
-          editSkillInCategory(category);
-        }
-
-        return category;
-      };
-
-      state.categories = state.categories.map(findCategory);
+    REMOVE_CATEGORY: (state, removedCatId) => {
+      state.categories = state.categories.filter(category => category.id !== removedCatId)
     }
   },
   actions: {
-    async addCategory({ commit }, title) {
+    async addCategory({commit}, catTitle) {
       try {
-        const { data } = await this.$axios.post("/categories", { title });
-        commit("ADD_CATEGORY", data);
+        const {data} = await this.$axios.post("/categories", {title: catTitle})
+        commit("ADD_CATEGORY", data)
+        return {data}
       } catch (error) {
-        throw new Error(
-            error.response.data.error || error.response.data.message
-        );
+        generateStdError(error)
       }
     },
-
-    async fetchCategories({ commit }) {
+    async fetchCategories({commit}) {
       try {
-        const { data } = await this.$axios.get("/categories/1");
-        commit("SET_CATEGORIES", data);
-        console.log(data);
-      } catch (error) {}
+        const {data} = await this.$axios.get(`/categories/334`)
+        commit("SET_CATEGORIES", data)
+        return {data}
+      } catch (error) {
+        generateStdError(error)
+      }
     },
-
-    async addReview(store, review) {
-      const formData = new FormData();
-
-      Object.keys(review).forEach(key => {
-        const value = review[key];
-        formData.append(key, value);
-      });
-
-      const response = await this.$axios.post('/reviews', formData);
-
-      console.log(response.data);
-
-    }
+    async updateCategory({commit}, category) {
+      try {
+        const response = await this.$axios.post(`/categories/${category.id}`, category)
+        commit("UPDATE_CATEGORY", response.data.category)
+        return response
+      } catch (error) {
+        generateStdError(error)
+      }
+    },
+    async removeCategory({commit}, categoryId) {
+      try {
+        const response = await this.$axios.delete(`/categories/${categoryId}`)
+        commit("REMOVE_CATEGORY", categoryId)
+        return response
+      } catch (error) {
+        generateStdError(error)
+      }
+    },
   }
 };
-
-
-// import { generateStdError } from "../../helpers/errorHandler"
-//
-// export default {
-//   namespaced: true,
-//   state: {
-//     categories: []
-//   },
-//   mutations: {
-//     SET_CATEGORIES: (state, data) => (state.categories = data),
-//     ADD_CATEGORY: (state, category) => state.categories.push(category),
-//     ADD_SKILL: (state, newSkill) => {
-//       state.categories = state.categories.map(category => {
-//         if (category.id === newSkill.category) {
-//           category.skills.push(newSkill);
-//         }
-//         return category;
-//       });
-//     },
-//     REMOVE_SKILL: (state, deletedSkill) => {
-//       const removeSkillInCategory = category => {
-//         category.skills = category.skills.filter(
-//             skill => skill.id !== deletedSkill.id
-//         );
-//       };
-//
-//       const findCategory = category => {
-//         if (category.id === deletedSkill.category) {
-//           removeSkillInCategory(category);
-//         }
-//
-//         return category;
-//       };
-//
-//       state.categories = state.categories.map(findCategory);
-//     },
-//
-//     EDIT_SKILL: (state, editedSkill) => {
-//       const editSkillInCategory = category => {
-//         category.skills = category.skills.map(skill => {
-//           return skill.id === editedSkill.id ? editedSkill : skill;
-//         });
-//       };
-//
-//       const findCategory = category => {
-//         if (category.id === editedSkill.category) {
-//           editSkillInCategory(category);
-//         }
-//
-//         return category;
-//       };
-//
-//       state.categories = state.categories.map(findCategory);
-//     }
-//   },
-//   actions: {
-//     async addCategory(store, title) {
-//       try {
-//
-//         const response = await $axios.post("/categories", {title})
-//         console.log(response)
-//       } catch (error) {
-//
-//            // TODO Error
-//       }
-//     },
-//     async fetchCategories({ commit }) {
-//       try {
-//         const { data } = await this.$axios.get("/categories/1");
-//         commit("SET_CATEGORIES", data);
-//         console.log(data);
-//       } catch (error) {}
-//     },
-//   }
-// }
