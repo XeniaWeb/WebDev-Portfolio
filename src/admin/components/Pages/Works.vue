@@ -612,11 +612,22 @@
     .works__list {
       grid-template: "left right" max-content / 1fr 1fr;
     }
+
+    .edit-form__content {
+      grid-area: content;
+      display: grid;
+      grid-template: "uploads" max-content "info" min-content
+                    / 1fr;
+    }
   }
+
   @include tablets {
     .works__wrapper {
       max-width: 708px;
       padding: 60px 0;
+    }
+    .works__list {
+      grid-template: "form" min-content / 1fr;
     }
   }
   //- PHONES ------------
@@ -636,8 +647,6 @@
       padding: 0 20px;
     }
 
-    .works__list {
-      grid-template: "form" max-content / 1fr;
-    }
+
   }
 </style>

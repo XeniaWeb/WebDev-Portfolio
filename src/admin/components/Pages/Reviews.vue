@@ -547,21 +547,35 @@
     }
   }
   //- TABLETS ------------
+
+  @include tabletsBig  {
+    .reviews__list{
+      grid-template: "left right" max-content / 1fr 1fr;
+    }
+    .edit-form__info {
+      grid-area: info;
+      display: grid;
+      grid-template: "name" min-content "title" min-content "text" max-content
+            / 1fr;
+      grid-column-gap: 30px;
+    }
+  }
   @include tablets {
     .reviews__wrapper {
       max-width: 708px;
       padding: 60px 0;
     }
 
-    .reviews__content {
-      grid-template: "left right" max-content / 1fr 1fr;
-    }
 
-    .edit-form__info {
-      grid-area: info;
+
+    .reviews__list {
+      grid-template: "form" max-content / 1fr;
+    }
+    .edit-form__content {
+      grid-area: content;
       display: grid;
-      grid-template: "name" min-content "title" min-content "text" max-content
-            / 1fr;
+      grid-template: "uploads" min-content "info" min-content
+                    / 1fr;
       grid-column-gap: 30px;
     }
   }
@@ -582,16 +596,8 @@
       padding: 0 20px;
     }
 
-    .reviews__content {
-      grid-template: "form" max-content / 1fr;
-    }
 
-    .edit-form__content {
-      grid-area: content;
-      display: grid;
-      grid-template: "uploads" min-content "info" min-content
-                    / 1fr;
-      grid-column-gap: 30px;
-    }
+
+
   }
 </style>

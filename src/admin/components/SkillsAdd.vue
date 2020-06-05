@@ -10,7 +10,7 @@
         onfocus="this.placeholder=''")
       .form__buttons
         button.form__tick-btn(@click.prevent="createNewCat" type="button" name="add")
-        button.form__remove-btn(type="button" name="remove")
+        button.form__remove-btn(type="button" name="remove" @click.revent="$emit('toggleAddForm')")
     hr.form__divider
     .form__content
     .form__controls
