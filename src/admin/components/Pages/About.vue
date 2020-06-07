@@ -14,12 +14,13 @@
           )
           SkillsGroup(
           :category="category"
-          :skills="skills"
+          :skills="category"
           )
 </template>
 
 <script>
   import {mapActions, mapState} from "vuex"
+  import skills from "../../store/modules/skills";
 
   export default {
     name: "About",
@@ -42,19 +43,20 @@
     },
     async created() {
       try {
-        await this.fetchCategories()
-      } catch (e) {
-        console.log(e)
+        await this.getCategories()
+      } catch (error) {
+        console.log(error.message)
       }
-      // try {
-      //
-      // } catch (e) {
-      //
-      // }
-      // this.fetchCategories()
+      try {
+        await this.getSkills()
+      } catch (error) {
+        console.log(error.message)
+      }
     },
     methods: {
-      ...mapActions("categories", ["addCategory", "fetchCategories"]),
+      ...mapActions("skills", ["getSkills"]),
+      ...mapActions("categories", ["addCategory", "getCategories"]),
+
       toggleAddForm() {
         this.addFormVisible = !this.addFormVisible;
       }

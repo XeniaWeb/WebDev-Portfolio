@@ -6,7 +6,8 @@ export default {
     categories: []
   },
   mutations: {
-    SET_CATEGORIES: (state, data) => (state.categories = data),
+    SET_CATEGORIES_WITH_SKILLS: (state, data) => (state.categories = data),
+    GET_CATEGORIES: (state, data) => (state.categories = data),
     ADD_CATEGORY: (state, skillCategory) => state.categories.unshift(skillCategory),
     UPDATE_CATEGORY: (state, changedCat) => {
       state.categories = state.categories.map(category => {
@@ -27,10 +28,19 @@ export default {
         generateStdError(error)
       }
     },
+    async getCategories({commit}) {
+      try {
+        const {data} = await this.$axios.get(`/categories`)
+        commit("GET_CATEGORIES", data)
+        return {data}
+      } catch (error) {
+        generateStdError(error)
+      }
+    },
     async fetchCategories({commit}) {
       try {
         const {data} = await this.$axios.get(`/categories/334`)
-        commit("SET_CATEGORIES", data)
+        commit("SET_CATEGORIES_WITH_SKILLS", data)
         return {data}
       } catch (error) {
         generateStdError(error)

@@ -4,22 +4,24 @@
       v-model="editedSkill.title"
       name="name"
       type="text"
-      value="HTML"
+      value="editedSkill.title"
       disabled="inputDisabled")
     .form__row-value-box
       input.form__row-value(
-        name="name"
+        v-model="editedSkill.percent"
+        name="percent"
         type="number"
         min="0"
         max="100"
         placeholder=""
-        value="90",
+        value="editedSkill.percent",
         disabled="inputDisabled")
-    .form__buttons
-      button.form__edit-btn.no-displaid(type="button" name="edit")
-      button.form__trash-btn.no-displaid(type="button" name="trash")
-      button.form__tick-btn(type="button" name="add")
-      button.form__remove-btn(type="button" name="remove")
+    .form__buttons(v-if="inputDisabled" )
+      button.form__edit-btn(@click.prevent="toggleSkillInput" type="button" name="edit" )
+      button.form__trash-btn(@click.prevent="delCurrentSkill" type="button" name="trash")
+    .form__buttons(v-else)
+      button.form__tick-btn(@click.prevent="updateCurrentSkill" type="button" name="add")
+      button.form__remove-btn(@click.prevent="toggleSkillInput" type="button" name="remove")
 
 </template>
 
@@ -39,7 +41,34 @@
     },
     methods: {
       ...mapActions("skills", ["removeSkill", "editSkill"]),
+      async updateCurrentSkill() {
+        try {
+          const {response} = await this.editSkill(this.editedSkill)
+          this.toggleSkillInput()
+          //TODO показать сообщение OK
+        } catch (error) {
+          //TODO показать сообщение Error
 
+          alert(error.message)
+        }
+      },
+      async delCurrentSkill() {
+        try {
+          const {response} = await this.removeSkill(this.skill.id)
+          //TODO показать сообщение OK
+
+        } catch (error) {
+          //TODO показать сообщение Error
+
+          alert(error.message)
+        }
+      },
+      toggleSkillInput() {
+        if (!this.inputDisabled) {
+          this.editedCategory = {...this.category}
+        }
+        this.inputDisabled = !this.inputDisabled
+      }
     }
   }
 </script>

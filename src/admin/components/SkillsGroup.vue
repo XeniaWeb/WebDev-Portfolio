@@ -82,7 +82,7 @@
         } catch (error) {
           //TODO показать сообщение Error
 
-          alert(error.message);
+          alert(error.message)
         }
       },
       async updateCurrentCategory() {
