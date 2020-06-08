@@ -11,7 +11,7 @@
   position: absolute;
   font-size: 18px;
   line-height: 30px;
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
   opacity: 0.5;
 }
@@ -47,9 +47,25 @@
   .skill__circle {
     r: 56px;
 
+    &--down {
+      stroke-width: 8px;
+      stroke: $circle-color-light;
+    }
     &--up {
+      stroke-width: 15px;
       stroke-dasharray: 352;
     }
+  }
+
+  .skill__title {
+    width: 50%;
+    display: block;
+    position: absolute;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0.5;
   }
 
   @keyframes alternateCircle {

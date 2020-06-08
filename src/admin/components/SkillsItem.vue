@@ -5,7 +5,8 @@
       name="name"
       type="text"
       value="editedSkill.title"
-      disabled="inputDisabled")
+      :disabled="inputDisabled"
+      )
     .form__row-value-box
       input.form__row-value(
         v-model="editedSkill.percent"
@@ -15,7 +16,8 @@
         max="100"
         placeholder=""
         value="editedSkill.percent",
-        disabled="inputDisabled")
+        :disabled="inputDisabled"
+        )
     .form__buttons(v-if="inputDisabled" )
       button.form__edit-btn(@click.prevent="toggleSkillInput" type="button" name="edit" )
       button.form__trash-btn(@click.prevent="delCurrentSkill" type="button" name="trash")
@@ -40,32 +42,51 @@
       }
     },
     methods: {
+      ...mapActions("tooltips", ["showTooltip", "closeTooltip"]),
       ...mapActions("skills", ["removeSkill", "editSkill"]),
+      ...mapActions("categories", [ "fetchCategories"]),
       async updateCurrentSkill() {
         try {
           const {response} = await this.editSkill(this.editedSkill)
           this.toggleSkillInput()
-          //TODO показать сообщение OK
+          this.showTooltip({
+            type: "success",
+            text: "Изменено успешно!"
+          })
         } catch (error) {
-          //TODO показать сообщение Error
-
-          alert(error.message)
+          this.showTooltip({
+            type: "error",
+            text: `Не получилось...`
+          })
         }
       },
       async delCurrentSkill() {
         try {
-          const {response} = await this.removeSkill(this.skill.id)
-          //TODO показать сообщение OK
+          await this.removeSkill(this.skill.id)
+          this.showTooltip({
+            type: "success",
+            text: "Навык успешно удален!"
+          })
 
         } catch (error) {
-          //TODO показать сообщение Error
+          this.showTooltip({
+            type: "error",
+            text: `Не получилось...`
+          })
 
-          alert(error.message)
+        }
+        try {
+          await this.fetchCategories()
+        } catch (error) {
+          this.showTooltip({
+            type: "error",
+            text: `Не удалось получить данные.`
+          })
         }
       },
       toggleSkillInput() {
         if (!this.inputDisabled) {
-          this.editedCategory = {...this.category}
+          this.editedSkill = {...this.skill}
         }
         this.inputDisabled = !this.inputDisabled
       }

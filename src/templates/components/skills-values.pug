@@ -1,11 +1,11 @@
 script(type="text/x-template")#skills-list.skills-list
   ul.user-skills.skills__values
-    li.user-skills__item(v-for="category in skills" :key="category.title")
+    li.user-skills__item(v-for="category in skills" :key="category.id")
       skills-group(:category="category")
 
 script(type="text/x-template")#skills-group
   .skills-group
-    h3.skills-group__title {{ category.title }}
+    h3.skills-group__title {{ category.category }}
     ul.skills-group__list
       li.skills-group__item(v-for="skill in category.skills" :key="skill.id")
         skill(:skill="skill")

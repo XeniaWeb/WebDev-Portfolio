@@ -14,18 +14,18 @@
           )
           SkillsGroup(
           :category="category"
-          :skills="category"
+          :skills="category.skills"
           )
 </template>
 
 <script>
   import {mapActions, mapState} from "vuex"
-  import skills from "../../store/modules/skills";
+  import SkillsGroup from "../SkillsGroup";
 
   export default {
     name: "About",
     components: {
-      SkillsGroup: () => import('components/SkillsGroup'),
+      SkillsGroup,
       SkillsAdd: () => import('components/SkillsAdd')
     },
     data() {
@@ -36,26 +36,21 @@
     computed: {
       ...mapState("categories", {
         categories: state => state.categories
-      }),
-      ...mapState("skills", {
-        skills: state => state.skills
       })
     },
     async created() {
       try {
-        await this.getCategories()
+        await this.fetchCategories()
       } catch (error) {
-        console.log(error.message)
-      }
-      try {
-        await this.getSkills()
-      } catch (error) {
-        console.log(error.message)
+        this.showTooltip({
+          type: "error",
+          text: `Что-то пошло не так...`
+        })
       }
     },
     methods: {
       ...mapActions("skills", ["getSkills"]),
-      ...mapActions("categories", ["addCategory", "getCategories"]),
+      ...mapActions("categories", ["addCategory", "fetchCategories"]),
 
       toggleAddForm() {
         this.addFormVisible = !this.addFormVisible;

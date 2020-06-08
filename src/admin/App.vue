@@ -1,26 +1,50 @@
 <template lang="pug">
   .admin-wrapper
-   AdminHeader
-   router-view
+    AdminHeader
+    router-view
+    Tooltips(:class="{'visible' : visible}")
 
 </template>
 
 <script>
+  import { mapState, mapActions, mapGetters } from "vuex";
+
   import AdminHeader from "./components/AdminHeader";
   import Login from "./components/Pages/Login";
   import About from "./components/Pages/About";
   import Works from "./components/Pages/Works";
   import Reviews from "./components/Pages/Reviews";
   import Messages from "./components/Messages";
+  import Tooltips from "./components/Tooltips";
   export default {
     name: 'App',
     components: {
+      Tooltips,
       Messages,
       Reviews,
       Works,
       About,
       Login,
       AdminHeader
+    },
+    computed: {
+      ...mapGetters("user", ["userIsLogged"]),
+      ...mapState("tooltips", { visible: state => state.visible })
+    },
+    methods: {
+      ...mapActions("tooltips", ["closeTooltip"])
+    },
+    watch: {
+      visible(value) {
+        if (value === true) {
+          let timeout;
+          clearTimeout(timeout);
+
+          timeout = setTimeout(() => {
+            this.closeTooltip();
+          }, 4000);
+        }
+      }
     }
   }
 

@@ -30,14 +30,22 @@
       catTitle: ""
     }),
     methods: {
+      ...mapActions("tooltips", ["showTooltip", "closeTooltip"]),
       ...mapActions("categories", ["addCategory"]),
       async createNewCat() {
         try {
           const {response} = await this.addCategory(this.catTitle)
           this.catTitle = ""
           this.$emit('toggleAddForm')
+          this.showTooltip({
+            type: "success",
+            text: "Поздравляю! Еще одна группа навыков... Не надоело?"
+          })
         } catch (error) {
-          alert(error.message);
+          this.showTooltip({
+            type: "error",
+            text: `Не удалось добавить категорию...`
+          })
         }
       }
     }

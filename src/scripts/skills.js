@@ -1,4 +1,5 @@
 import Vue from "vue";
+import axios from "axios"
 
 const skill = {
   template: "#skill",
@@ -8,7 +9,7 @@ const skill = {
   methods: {
     drawSkillsCircle() {
       const circle = this.$refs["circle"]
-      circle.style.animationDelay = this.skill.percent;
+      circle.style.animationDelay = `-${this.skill.percent}s`
     }
   },
   mounted() {
@@ -37,7 +38,8 @@ new Vue({
       skills: []
     }
   },
-  created() {
-    this.skills = require('../data/skills.json');
+  async created() {
+    const {data} = await axios.get('https://webdev-api.loftschool.com/categories/334');
+    this.skills = data
   }
 });

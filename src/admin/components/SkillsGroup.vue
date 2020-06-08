@@ -48,65 +48,95 @@
 
 <script>
   import {mapActions} from 'vuex'
+  import SkillsItem from "./SkillsItem";
 
   export default {
     name: "SkillsGroup",
     props: {
-      category: Object,
-      skills: Array
-    },
-    data() {
-      return {
-        inputDisabled: true,
-        editedCategory: {...this.category},
-        skill: {
-          category: this.category.id,
-          title: "",
-          percent: ""
-        }
+      category: {
+        type: Object,
+        default: () => {
+        },
+        required: true
+      },
+      skills: {
+        type: Array,
+        default: () => [],
+        required: true
       }
-    },
-    components: {
-      SkillsItem: () => import('components/SkillsItem')
-    },
-    methods: {
-      ...mapActions("skills", ["addSkill"]),
-      ...mapActions("categories", ["updateCategory", "removeCategory"]),
+  },
+  data() {
+    return {
+      inputDisabled: true,
+      editedCategory: {...this.category},
+      skill: {
+        category: this.category.id,
+        title: "",
+        percent: ""
+      }
+    }
+  },
+  components: {
+    SkillsItem
+  },
+  methods: {
+      ...mapActions("tooltips", ["showTooltip", "closeTooltip"]),
+      ...mapActions("categories", ["addSkill", "updateCategory", "removeCategory", "fetchCategories"]),
       async addNewSkill() {
+        const skillData = {...this.skill}
         try {
-          const {response} = await this.addSkill(this.skill)
+          await this.addSkill(skillData)
           this.skill.title = ""
           this.skill.percent = ""
-          //TODO показать сообщение OK
-
+          this.showTooltip({
+            type: "success",
+            text: "Успешно!"
+          })
         } catch (error) {
-          //TODO показать сообщение Error
-
-          alert(error.message)
+          this.showTooltip({
+            type: "error",
+            text: "Не получилось..."
+          })
         }
       },
       async updateCurrentCategory() {
+        console.log(this.editedCategory.title, this.editedCategory.category)
         this.editedCategory.title = this.editedCategory.category;
 
         try {
           const {response} = await this.updateCategory(this.editedCategory)
           this.toggleInput();
-          //TODO показать сообщение OK
-
+          this.showTooltip({
+            type: "success",
+            text: "Изменения сохранены!"
+          })
         } catch (error) {
-          //TODO показать сообщение Error
-
-          alert(error.message);
+          this.showTooltip({
+            type: "error",
+            text: "Не получилось..."
+          })
+        }
+        try {
+          await this.fetchCategories()
+        } catch (error) {
+          this.showTooltip({
+            type: "error",
+            text: `Не получилось: ${error.message}`
+          })
         }
       },
       async delCurrentCategory() {
         try {
           const {response} = await this.removeCategory(this.editedCategory.id)
-          //TODO показать сообщение Ok
+          this.showTooltip({
+            type: "success",
+            text: "Категория удалена!"
+          })
         } catch (error) {
-          //TODO показать сообщение Error
-
-          alert(error.message);
+          this.showTooltip({
+            type: "error",
+            text: `Не получилось: ${error.message}`
+          })
         }
       },
 
