@@ -59,7 +59,7 @@
     "pug": "^2.0.4",
     "pug-cli": "^1.0.0-alpha6",
     "request": "^2.88.0",
-    "serialize-javascript": "^3.0.0",
+    "serialize-javascript": "^3.1.0",
     "set-value": "^3.0.2",
     "signale": "^1.4.0",
     "simple-vue-validator": "^0.16.0",
